@@ -27,3 +27,27 @@
 **[pre](https://www.drupal.org/sandbox/joel/2121797)** allows you to implement `prefetch`, `prerender`, and other speculative requests via simple `<link>` tags. These speculations should always be backed by analytics observations, but when properly implemented can really help the perceived performance of your site.
 
 * Blog: http://fourword.fourkitchens.com/article/prerender-chrome-instant-page-loads
+
+## Workflow Automation
+
+Sometimes installing a module won't cut it, and you'll need to rely on additional tools to improve your workflow itself. In the context of Drupal these are often handled within your theme.
+
+### Automation tools
+
+**[npm](https://www.npmjs.com/)** is the package manager for JavaScript. Just how GitHub is the defacto place to develop code, npm is the defacto place to publish it and easily download it.
+
+**[gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)** is a task manager specifically designed around node.js' strengths. You have to code a little bit compared to Grunt, but it is noticeably faster in almost all cases.
+
+**[grunt](http://gruntjs.com/getting-started)** Grunt.js is Gulp's predecessor. While slightly simpler to understand and configure, Grunt is often much slower due to its internal arcitecture decisions. Some performance tools are only available "out of the box" via Grunt.
+
+With these tools you will be able to capture repetitive tasks and run them automatically whenever you need them. It might be as frequent as a file save, or only once per deploy. But either way, having an automated workflow is less error-prone and more reliable than manually remembering and executing the tasks.
+
+### Optimization tools
+
+Here is a list of tools we frequently use in our frontend workflow:
+
+* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)
+* [gulp-minify-css](https://www.npmjs.com/package/gulp-minify-css)
+* [gulp-htmlmin](https://www.npmjs.com/package/gulp-htmlmin)
+* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
+* [critical](https://github.com/addyosmani/critical)
