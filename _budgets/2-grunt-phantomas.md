@@ -1,0 +1,13 @@
+---
+title: grunt-phantomas
+
+links:
+  -
+    text: grunt-phantomas
+    type: official
+    url: https://www.npmjs.com/package/grunt-phantomas
+---
+
+is a tool that allows you to collect trends of performance data. Unlike WPT _Speed Index_, which combined many factors into a single, digestible number, `grunt-phantomas` exposes the raw data and graphs its progress over time. It has built-in support for tests, allowing you to set a limit on any number of factors and easily spot the failing tests.
+
+[insert image of graphs]

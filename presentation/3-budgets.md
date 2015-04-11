@@ -1,3 +1,6 @@
+---
+---
+
 # Performance Budgets
 
 The main difficulty most teams overcome is actually putting performance front and center during a normal workflow. Many problems are much harder to solve after weeks of work have been built on top of them. One way of finding problems early and often is the use of a **performance budget**.
@@ -17,14 +20,12 @@ Just like a monetary budget, a performance budget places limits on your site, an
 
 ## Tools
 
-**[grunt-perfbudget](https://github.com/tkadlec/grunt-perfbudget)** Uses the WebPageTest API to measure the _Speed Index_ of your site.
+<dl>
+{% for tool in site.budgets %}
+    {% include list-tools.html %}
+{% endfor %}
+</dl>
 
-* Blog: http://timkadlec.com/2014/05/performance-budgeting-with-grunt/
+## Find more tools
 
-**[grunt-phantomas](https://github.com/stefanjudis/grunt-phantomas)** is a tool that allows you to collect trends of performance data. Unlike WPT _Speed Index_, which combined many factors into a single, digestible number, `grunt-phantomas` exposes the raw data and graphs its progress over time. It has built-in support for tests, allowing you to set a limit on any number of factors and easily spot the failing tests.
-
-[insert image of graphs]
-
-## Read more
-
-You can see a large collection of curated tools, articles, and tutorials at http://perf-tooling.today/
+You can see a large collection of curated tools, articles, and tutorials at [http://perf-tooling.today/](http://perf-tooling.today/)
