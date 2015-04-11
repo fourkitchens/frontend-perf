@@ -1,0 +1,55 @@
+name: Frontend Performance Training
+permalink: pretty
+debug: true
+development: true
+
+markdown: redcarpet
+redcarpet:
+  extensions: ["smart"]
+
+highlighter: true
+exclude: [CONTRIBUTING.md, README.md, SCHEDULE.md, TODO.md config.rb, package.json, gulpfile.js, Gemfile, Gemfile.lock, node_modules, "vendor", bower.json]
+
+collections:
+  browser:
+    output: true
+  drupal:
+    output: true
+  workflow:
+    output: true
+  budgets:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: "tools"
+    values:
+      layout: "tool"
+
+navigation:
+  -
+    text: About
+    title: Basic info about this training
+    url: /about/
+    accesskey: a
+  -
+    text: Foundation
+    title: Learn about the fundamentals of frontend performance
+    url: /foundation/
+    accesskey: f
+  -
+    text: Drupal
+    title: Get the best frontend performance out of Drupal 7
+    url: /drupal/
+    accesskey: d
+  -
+    text: Workflow
+    title: Automate your workflow and deployment
+    url: /workflow/
+    accesskey: w
+  -
+    text: Budgets
+    title: Set and maintain a performance budget
+    url: /budgets/
+    accesskey: b
