@@ -8,7 +8,7 @@
 * Utilize the `async` attribute on CSS/JS
 * Use additional config options for CSS aggregation.
 
-Further reading: http://fourword.fourkitchens.com/article/magic-frontend-performance-all-themes
+<a class="more-info button" href="http://fourword.fourkitchens.com/article/magic-frontend-performance-all-themes">Blog post about Magic</a>
 
 **[Advanced CSS/JS Aggregation](https://www.drupal.org/project/advagg)** is another more advanced option, when your needs have outgrown Magic's functionality.
 
@@ -26,7 +26,7 @@ Further reading: http://fourword.fourkitchens.com/article/magic-frontend-perform
 
 **[pre](https://www.drupal.org/sandbox/joel/2121797)** allows you to implement `prefetch`, `prerender`, and other speculative requests via simple `<link>` tags. These speculations should always be backed by analytics observations, but when properly implemented can really help the perceived performance of your site.
 
-* Blog: http://fourword.fourkitchens.com/article/prerender-chrome-instant-page-loads
+<a class="more-info button" href="http://fourword.fourkitchens.com/article/prerender-chrome-instant-page-loads">Blog post about prerendering</a>
 
 ## Workflow Automation
 
@@ -46,8 +46,14 @@ With these tools you will be able to capture repetitive tasks and run them autom
 
 Here is a list of tools we frequently use in our frontend workflow:
 
-* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)
-* [gulp-minify-css](https://www.npmjs.com/package/gulp-minify-css)
-* [gulp-htmlmin](https://www.npmjs.com/package/gulp-htmlmin)
-* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
-* [critical](https://github.com/addyosmani/critical)
+**[gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)** compresses binary images and minifies SVG files, making them as small as possible.
+
+**[gulp-minify-css](https://www.npmjs.com/package/gulp-minify-css)** minifies CSS, removing comments and unnecessary whitespace.
+
+**[gulp-htmlmin](https://www.npmjs.com/package/gulp-htmlmin)** minifies your HTML, removing comments and unnecessary whitespace.
+
+**[gulp-uglify](https://www.npmjs.com/package/gulp-uglify)** minifies your JavaScript, removing whitespace and long variable names.
+
+**[gulp-concat](https://www.npmjs.com/package/gulp-concat)** combines files together. This is often used in conjunction with uglify to create JS aggregates.
+
+**[critical](https://github.com/addyosmani/critical)** helps identify and isolate CSS that is critical to your initial page render. Since only a portion of your site is displayed initially, identifying these bits of critical CSS and serving them inline along with your HTML can help mobile phones in particular render the page faster.
