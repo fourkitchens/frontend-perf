@@ -1,16 +1,18 @@
-<dt class="tool__title">{{ tool.title }}</dt>
-<dd class="tool__description">
-  {{ tool.content }}
+<div class="panel panel-default tool">
+  <div class="panel-heading">{{ tool.title }}</div>
+  <div class="panel-body">
+    {{ tool.content }}
 
-  <div class="tool__links">
-    {% for link in tool.links %}
-      <a class="btn btn-primary btn-{{ link.type }}" href="{{ link.url }}">
-        {% if link.type == 'official' %}Read official docs for{% endif %}
-        {% if link.type == 'blog' %}Read a blog post about{% endif %}
-        {% if link.type == 'more-info' %}More info on{% endif %}
-        {% if link.type == 'video' %}Watch a video about{% endif %}
-        {{ link.text }}
-      </a>
-    {% endfor %}
+    <div class="tool__links">
+      {% for link in tool.links %}
+        <a class="btn btn-primary btn-{{ link.type }}" href="{{ link.url }}">
+          {% if link.type == 'official' %}Read official docs for{% endif %}
+          {% if link.type == 'blog' %}Read a blog post about{% endif %}
+          {% if link.type == 'more-info' %}More info on{% endif %}
+          {% if link.type == 'video' %}Watch a video about{% endif %}
+          {{ link.text }}
+        </a>
+      {% endfor %}
+    </div>
   </div>
-</dd>
+</div>

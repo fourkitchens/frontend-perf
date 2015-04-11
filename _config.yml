@@ -11,6 +11,8 @@ highlighter: true
 exclude: [CONTRIBUTING.md, README.md, SCHEDULE.md, TODO.md config.rb, package.json, gulpfile.js, Gemfile, Gemfile.lock, node_modules, "vendor", bower.json]
 
 collections:
+  foundation:
+    output: true
   browser:
     output: true
   drupal:
@@ -45,6 +47,11 @@ navigation:
     title: Learn about the fundamentals of frontend performance
     url: /foundation/
     accesskey: f
+  -
+    text: Browsers
+    title: Explore performance-related browser DevTools
+    url: /browsers/
+    accesskey: b
   -
     text: Drupal
     title: Get the best frontend performance out of Drupal 7

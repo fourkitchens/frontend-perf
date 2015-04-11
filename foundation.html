@@ -1,0 +1,48 @@
+---
+title: "Performance: why and how?"
+---
+
+<div class="jumbotron">
+  <h1>Performance: why and how?</h1>
+</div>
+
+<div class="page-header">
+  <h2>Why care about Performance?</h2>
+</div>
+
+<ul>
+  <li>Fast sites convert users better.</li>
+  <li>Fast sites make impatient users happier.</li>
+  <li>Fast sites are cheaper &mdash; for both hosting and mobile data plans.</li>
+  <li>Fast sites serve more page loads, which can generate more ad revenue.</li>
+</ul>
+
+<div class="page-header">
+  <h2>Fundamentals of Performance</h2>
+</div>
+
+<div class="alert alert-warning">
+  <p>Many facets of performance are improving over time. One such change is HTTP/2, and it will cause sweeping changes to how sites download and arrive onto your computer. Some of the current optimizations that are a good idea with HTTP/1.1 will actually <em>hurt</em> your site's performance using HTTP/2. We will mark any potential regressions so you can keep the future in mind.</p>
+</div>
+
+<div class="page-header">
+  <h3>HTTP/1.1</h3>
+</div>
+
+<blockquote><em><strong>Concatenate, minify, compress, shard.</strong></em></blockquote>
+
+<div class="tools col2">
+  {% for tool in site.foundation %}
+    {% include list-tools.html %}
+  {% endfor %}
+</div>
+
+<div class="page-header">
+  <h3>HTTP/2</h3>
+</div>
+
+<strong>Ignore all the above advice.</strong>
+
+<p>Using HTTP/2, the server and browser can more efficiently use the connection they create between each other, and multiple files can be sent using one single connection. Thus, the gains achieved by concatenating when using HTTP1.1 is now a <strong>restriction</strong> that the server has no choice but to obey when using HTTP2.</p>
+
+<p>HTTP/2 was created to address all of the performance workarounds described in the HTTP/1.1 section. So if your server is using the newer protocol, none of those workarounds are necessary.</p>

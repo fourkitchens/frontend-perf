@@ -1,0 +1,12 @@
+---
+---
+
+<div class="jumbotron"><h1>Drupal Modules</h1></div>
+
+<p>Drupal offers a number of modules specifically designed to improve frontend performance. Combined with a well-made theme, these modules can help your Drupal sites fly!</p>
+
+<dl class="tools col2">
+  {% for tool in site.drupal %}
+    {% include list-tools.html %}
+  {% endfor %}
+</dl>

@@ -25,11 +25,11 @@
             {% for link in site.navigation %}
               {% assign state = '' %}
               {% if page.url == link.url %}
-                  {% assign state = 'active ' %}
+                  {% assign state = ' active' %}
               {% endif %}
               <li>
                 <a
-                  class="header-mobile-wrap-anchor {{ state }}"
+                  class="header-mobile-wrap-anchor{{ state }}"
                   accesskey="{{ link.accesskey }}"
                   href="{{ link.url }}"
                   title="{{ link.title }}">
@@ -43,7 +43,7 @@
     </nav>
 
     <div class="container">
-      <br><br><br>
+      <br><br><br><br>
       {{ content }}
     </div>
 

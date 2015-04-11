@@ -1,27 +1,18 @@
 // -----------------------------------------------------------------------------
-//   Tool lists
-// -----------------------------------------------------------------------------
-
-.tools {
-  margin-bottom: 2em;
-}
-
-// -----------------------------------------------------------------------------
 //   Tools
 // -----------------------------------------------------------------------------
 
-.tool {
-  &__title {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: .5em;
-    font-size: 1.8em;
-  }
+.tools {
+  margin: 2em 0;
 
-  &__description {
-    // something
-  }
+  .tool {
+    float: left;
+    width: 47.5%;
+    margin-right: 5%;
 
-  &__links {
-    margin-bottom: 2em;
+    &:nth-of-type(2n) {
+      float: right;
+      margin-right: 0;
+    }
   }
 }

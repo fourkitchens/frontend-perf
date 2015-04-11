@@ -2,4 +2,10 @@
 //   Main Sass file
 // -----------------------------------------------------------------------------
 
+// Bootstrap overrides
+@import 'bootstrap/container';
+@import 'bootstrap/page-header';
+@import 'bootstrap/panel';
+
+// Content components
 @import 'components/tool';
