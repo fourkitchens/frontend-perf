@@ -8,7 +8,7 @@
 * Utilize the `async` attribute on CSS/JS
 * Use additional config options for CSS aggregation.
 
-* Blog: http://fourword.fourkitchens.com/article/magic-frontend-performance-all-themes
+Further reading: http://fourword.fourkitchens.com/article/magic-frontend-performance-all-themes
 
 **[Advanced CSS/JS Aggregation](https://www.drupal.org/project/advagg)** is another more advanced option, when your needs have outgrown Magic's functionality.
 
@@ -38,7 +38,7 @@ Sometimes installing a module won't cut it, and you'll need to rely on additiona
 
 **[gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)** is a task manager specifically designed around node.js' strengths. You have to code a little bit compared to Grunt, but it is noticeably faster in almost all cases.
 
-**[grunt](http://gruntjs.com/getting-started)** Grunt.js is Gulp's predecessor. While slightly simpler to understand and configure, Grunt is often much slower due to its internal arcitecture decisions. Some performance tools are only available "out of the box" via Grunt.
+**[grunt](http://gruntjs.com/getting-started)** is Gulp's predecessor. While slightly simpler to understand and configure, Grunt is often much slower due to its internal arcitecture decisions. Some performance tools are only available "out of the box" via Grunt.
 
 With these tools you will be able to capture repetitive tasks and run them automatically whenever you need them. It might be as frequent as a file save, or only once per deploy. But either way, having an automated workflow is less error-prone and more reliable than manually remembering and executing the tasks.
 
