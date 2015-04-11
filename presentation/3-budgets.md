@@ -20,7 +20,7 @@ Just like a monetary budget, a performance budget places limits on your site, an
 
 ## Tools
 
-<dl>
+<dl class="tools">
 {% for tool in site.budgets %}
     {% include list-tools.html %}
 {% endfor %}
