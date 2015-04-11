@@ -1,0 +1,7 @@
+{
+  "name": "frontend-perf-training",
+  "repository": "git@github.com:fourkitchens/frontend-perf.git",
+  "dependencies": {
+    "bootstrap": "^3.3.4"
+  }
+}

@@ -1,2 +1,5 @@
 # Ignore Jekyll output
 _site
+
+# Ignore npm
+node_modules
