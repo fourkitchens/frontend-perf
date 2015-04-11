@@ -1,5 +1,18 @@
 # Frontend Performance Optimization
 
+## Browser DevTools
+
+> _Note: We are most familiar with Chrome and so all of the examples will follow suit. However, most of the tools demoed are available in all browsers._
+
+Every browser has a powerful set of **development tools** (DevTools) lurking inside, waiting for you to unlock its full potential. Every type of browser performance problem, from page loads to animation jank, can be debugged directly in the browser. We will cover the most oft-used tools.
+
+**[Network](https://developer.chrome.com/devtools/docs/network)** allows you to analyze and identify problematic HTTP traffic. The waterfall displays the full life of every HTTP request, from the moment your browser initiated it to the moment the last byte arrives. For most situations the Network tab is the first and best tool for debugging slow page loads.
+
+<a class="more-info button" href="http://www.webperformancetoday.com/2010/07/09/waterfalls-101/">Blog post about reading waterfalls</a>
+
+**[Timeline](https://developer.chrome.com/devtools/docs/timeline)** has a slighly generic sounding name, but it is very important when you have rendering issues. The most common rendering issues are animation related (e.g. a menu expands in a jerky fashion instead of smoothly). The timeline describes the steps the browser took to determine the layout of your webpage and then paint it on the screen.
+
+<a class="more-info button" href="https://www.youtube.com/watch?v=Vp524yo0p44">Watch a video explaining the basics of Timeline</a>
 ## Drupal Modules
 
 **[Magic](https://www.drupal.org/project/magic)** is a lightweight module that implements many frontend performance goodies. Many popular base themes were individually implementing these settings. Using Magic, you can:
