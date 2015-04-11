@@ -1,3 +1,7 @@
+---
+title: "Performance: why and how?"
+---
+
 # Performance: why and how?
 
 ## Why care about Performance?

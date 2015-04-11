@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ page.title }} | {{ site.name }}</title>
+
+    <!-- Placeholder to get going -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{ site.name }}</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            {% for link in site.navigation %}
+              {% assign state = '' %}
+              {% if page.url == link.url %}
+                  {% assign state = 'active ' %}
+              {% endif %}
+              <li>
+                <a
+                  class="header-mobile-wrap-anchor {{ state }}"
+                  accesskey="{{ link.accesskey }}"
+                  href="{{ link.url }}"
+                  title="{{ link.title }}">
+                  <span class="header-menu-short">{{ link.text }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      {{ content }}
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>

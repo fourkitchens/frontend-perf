@@ -1,4 +1,5 @@
 ---
+title: Frontend Performance Optimization
 ---
 
 # Frontend Performance Optimization
