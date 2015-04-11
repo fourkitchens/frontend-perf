@@ -1,0 +1,14 @@
+<dt class="tool">{{ tool.title }}</dt>
+<dd>
+  {{ tool.content }}
+
+  {% for link in tool.links %}
+    <a class="button button-{{ link.type }}" href="{{ link.url }}">
+      {% if link.type == 'official' %}Read official docs for{% endif %}
+      {% if link.type == 'blog' %}Read a blog post about{% endif %}
+      {% if link.type == 'more-info' %}More info on{% endif %}
+      {% if link.type == 'video' %}Watch a video about{% endif %}
+      {{ link.text }}
+    </a>
+  {% endfor %}
+</dd>
