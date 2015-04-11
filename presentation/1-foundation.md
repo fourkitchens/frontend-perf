@@ -19,7 +19,7 @@
 
 **Concatenate, minify, compress, shard.**
 
-**Concatenation** means to combine several assets into one asset. When Drupal combines multiple stylesheets into an aggregate, that is concatenation.
+**Concatenation** means to combine several assets into one asset. When Drupal combines multiple stylesheets into an aggregate, that is concatenation. Another common concatenation is inlining assets into another asset (e.g. inline an image into CSS, or inlining critical CSS into HTML)
 
 **Minification** is when all unimportant information is removed from a file. This typically means all whitespace and line-breaks are removed, but can also mean that JS variables are renamed to be as short as possible. Generous use of whitespace is required to maintain organized files, but the typical user never looks at your files so the whitespace is unnecessary bulk.
 
