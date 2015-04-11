@@ -1,5 +1,9 @@
-# Ignore Jekyll output
+# Jekyll
 _site
 
-# Ignore npm
+# npm
 node_modules
+
+# Sass
+.sass-cache
+css
