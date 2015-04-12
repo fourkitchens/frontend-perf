@@ -18,7 +18,7 @@ gulp.task('css', function() {
       outputStyle: 'nested',
       onError: function(err, res) {
         log(c.red('Sass failed to compile'));
-        log(c.red('> ') + err.file.split('/')[err.file.split('/').length - 1] + '@' + err.line + ': ' + err.message);
+        log(c.red('> ') + err.file.split('/')[err.file.split('/').length - 1] + ' ' + c.underline('line ' + err.line) + ': ' + err.message);
       }
     }))
     .pipe(prefix("last 2 versions", "> 1%"))
