@@ -2,6 +2,11 @@
   "name": "frontend-perf-training",
   "repository": "git@github.com:fourkitchens/frontend-perf.git",
   "dependencies": {
-    "bootstrap": "^3.3.4"
+    "bootstrap": "^3.3.4",
+    "gulp-util": "^3.0.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-task-listing": "^1.0.0"
   }
 }
