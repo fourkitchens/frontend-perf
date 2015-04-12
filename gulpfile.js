@@ -16,6 +16,10 @@ gulp.task('css', function() {
   return gulp.src('_sass/**/*.scss')
     .pipe(sass({
       outputStyle: 'nested',
+      onSuccess: function(css) {
+        var dest = css.stats.entry.split('/');
+        log(c.green('Sass compiled to ' + dest[dest.length - 1]));
+      },
       onError: function(err, res) {
         log(c.red('Sass failed to compile'));
         log(c.red('> ') + err.file.split('/')[err.file.split('/').length - 1] + ' ' + c.underline('line ' + err.line) + ': ' + err.message);
