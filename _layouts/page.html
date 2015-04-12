@@ -29,11 +29,11 @@
               {% endif %}
               <li>
                 <a
-                  class="header-mobile-wrap-anchor{{ state }}"
+                  class="{{ state }}"
                   accesskey="{{ link.accesskey }}"
                   href="{{ link.url }}"
                   title="{{ link.title }}">
-                  <span class="header-menu-short">{{ link.text }}</span>
+                  {{ link.text }}
                 </a>
               </li>
             {% endfor %}
