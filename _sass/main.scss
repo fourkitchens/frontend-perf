@@ -4,6 +4,7 @@
 
 // Bootstrap overrides
 @import 'bootstrap/container';
+@import 'bootstrap/jumbotron';
 @import 'bootstrap/page-header';
 @import 'bootstrap/navbar';
 @import 'bootstrap/panel';
@@ -11,4 +12,5 @@
 
 // Content components
 @import 'components/main';
+@import 'components/wifi';
 @import 'components/tool';
