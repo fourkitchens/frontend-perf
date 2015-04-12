@@ -1,7 +1,7 @@
 // Gulp and node
 var gulp = require('gulp');
-var gutil = require('gulp-util');
-var color = gutil.colors;
+var u = require('gulp-util');
+var c = u.colors;
 
 // workflow plugins
 var tasks = require('gulp-task-listing');
