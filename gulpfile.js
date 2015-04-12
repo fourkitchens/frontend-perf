@@ -25,6 +25,11 @@ gulp.task('css', function() {
     .pipe(gulp.dest('css'));
 });
 
+// Watch
+gulp.task('watch', function() {
+  gulp.watch('_sass/**/*.scss', ['css']);
+});
+
 // Default: load task listing
 gulp.task('help', tasks);
 gulp.task('default', ['help']);
