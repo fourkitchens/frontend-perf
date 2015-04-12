@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+//   Bootstrap navbar
+// -----------------------------------------------------------------------------
+
+.navbar-inverse .navbar-nav>li>a {
+  &.active {
+    color: #fff;
+    animation: nav-pulse 3s alternate infinite;
+  }
+}
+
+@keyframes nav-pulse {
+  80% {
+    transform: scale(1);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.6);
+  }
+  90% {
+    transform: scale(1.04);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.6);
+  }
+}
