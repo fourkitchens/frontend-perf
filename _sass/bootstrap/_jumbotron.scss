@@ -3,6 +3,10 @@
 // -----------------------------------------------------------------------------
 
 .jumbotron {
+  h1 {
+    text-shadow: 1px 1px 0px rgba(#fff, 1);
+  }
+
   @media screen and (min-width: 768px) {
     h1.slightly-smaller {
       font-size: 53px;
