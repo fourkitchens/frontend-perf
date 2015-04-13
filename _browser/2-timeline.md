@@ -7,6 +7,10 @@ links:
     type: official
     url: https://developer.chrome.com/devtools/docs/timeline
   -
+    text: Rendering Performance
+    type: more-info
+    url: https://developers.google.com/web/fundamentals/performance/rendering/
+  -
     text: debugging with the Timeline
     type: video
     url: https://www.youtube.com/watch?v=Vp524yo0p44
