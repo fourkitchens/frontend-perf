@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+//   Columns
+// -----------------------------------------------------------------------------
+
+.col2 > * {
+  float: left;
+  width: 47.5%;
+  margin-right: 5%;
+
+  &:nth-of-type(2n) {
+    float: right;
+    margin-right: 0;
+  }
+}
+
+.col3 > * {
+  float: left;
+  width: 30%;
+  margin-right: 5%;
+
+  &:nth-of-type(3n) {
+    float: right;
+    margin-right: 0;
+  }
+}
