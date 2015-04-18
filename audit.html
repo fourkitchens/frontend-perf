@@ -25,6 +25,8 @@ title: Auditing Performance
   <h2>Auditing Services</h2>
 </div>
 
+<p>These tools are hosted services, meaning you don't have to rely on your personal internet connection to perform an audit. Some have the ability to throttle the connection, or choose where in the world the test is run. They all have APIs and tests can be run as part of a workflow.</p>
+
 <div class="tools col2">
   {% for tool in site.audit %}
     {% if tool.type == 'service' %}{% include list-tools.html %}{% endif %}
