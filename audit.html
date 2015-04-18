@@ -17,6 +17,16 @@ title: Auditing Performance
 
 <div class="tools col2">
   {% for tool in site.audit %}
-    {% include list-tools.html %}
+    {% if tool.type == 'devtool' %}{% include list-tools.html %}{% endif %}
+  {% endfor %}
+</div>
+
+<div class="page-header">
+  <h2>Auditing Services</h2>
+</div>
+
+<div class="tools col2">
+  {% for tool in site.audit %}
+    {% if tool.type == 'service' %}{% include list-tools.html %}{% endif %}
   {% endfor %}
 </div>

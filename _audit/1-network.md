@@ -1,5 +1,6 @@
 ---
 title: Network
+type: devtool
 
 links:
   -
