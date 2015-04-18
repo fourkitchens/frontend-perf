@@ -13,9 +13,11 @@ var sass = require('gulp-sass');
 var uncss = require('gulp-uncss');
 
 // -----------------------------------------------------------------------------
-// CSS Task
+// Sass Task
+// - Compiles Sass
+// - Autoprefixes
 // -----------------------------------------------------------------------------
-gulp.task('css', function() {
+gulp.task('sass', function() {
   return gulp.src('_sass/**/*.scss')
     .pipe(sass({
       outputStyle: 'nested',
@@ -57,7 +59,7 @@ gulp.task('uncss', function() {
 
 // Watch
 gulp.task('watch', function() {
-  gulp.watch('_sass/**/*.scss', ['css']);
+  gulp.watch('_sass/**/*.scss', ['sass']);
 });
 
 // Default: load task listing
