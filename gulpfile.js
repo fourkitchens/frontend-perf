@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var u = require('gulp-util');
 var log = u.log;
 var c = u.colors;
+var del = require('del');
 var tasks = require('gulp-task-listing');
 
 // Basic workflow plugins
@@ -10,7 +11,24 @@ var prefix = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
 
 // Performance workflow plugins
+var concat = require('gulp-concat');
+var mincss = require('gulp-minify-css');
 var uncss = require('gulp-uncss');
+
+// -----------------------------------------------------------------------------
+// Remove old CSS
+// -----------------------------------------------------------------------------
+gulp.task('clean-css', function() {
+  return del(['css/{all,main}*'], function (err) {
+    if (err) { log(c.red('clean-css'), err); }
+    else {
+      log(
+        c.green('clean-css'),
+        'deleted old stylesheets'
+      );
+    }
+  });
+});
 
 // -----------------------------------------------------------------------------
 // Sass Task
@@ -23,7 +41,7 @@ gulp.task('sass', function() {
       outputStyle: 'nested',
       onSuccess: function(css) {
         var dest = css.stats.entry.split('/');
-        log(c.green('Sass compiled to ' + dest[dest.length - 1]));
+        log(c.green('sass'), 'compiled to', dest[dest.length - 1]);
       },
       onError: function(err, res) {
         log(c.red('Sass failed to compile'));
@@ -33,6 +51,17 @@ gulp.task('sass', function() {
     .pipe(prefix("last 2 versions", "> 1%"))
     .pipe(gulp.dest('css'));
 });
+
+// -----------------------------------------------------------------------------
+// Combine and Minify CSS
+// -----------------------------------------------------------------------------
+gulp.task('css', ['clean-css', 'sass'], function() {
+  return gulp.src('css/*.css')
+    .pipe(concat('all.min.css'))
+    .pipe(mincss())
+    .pipe(gulp.dest('css'));
+});
+
 
 // -----------------------------------------------------------------------------
 // UnCSS Task
@@ -59,7 +88,7 @@ gulp.task('uncss', function() {
 
 // Watch
 gulp.task('watch', function() {
-  gulp.watch('_sass/**/*.scss', ['sass']);
+  gulp.watch('_sass/**/*.scss', ['css']);
 });
 
 // Default: load task listing
