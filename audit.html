@@ -1,17 +1,22 @@
 ---
-title: Browser DevTools
+title: Auditing Performance
 ---
 
-<div class="jumbotron"><h1>Browser DevTools</h1></div>
+<div class="jumbotron"><h1>Auditing Performance</h1></div>
 
-<div class="alert alert-success">
-  <p>We are most familiar with Chrome and so all of the examples will follow suit. However, most of the tools demoed are available in all browsers.</p>
+<div class="page-header">
+  <h2>Browser DevTools</h2>
+</div>
+
+<div class="alert alert-success float-right">
+  <p>We are most familiar with Chrome and so all of the browser examples will follow suit. However, most of the tools demoed are available in all browsers.</p>
 </div>
 
 <p>Every browser has a powerful set of <strong>development tools</strong> (DevTools) lurking inside, waiting for you to unlock its full potential. Every type of browser performance problem, from page loads to animation jank, can be debugged directly in the browser. We will cover the most oft-used tools.</p>
+<br class="clear">
 
 <div class="tools col2">
-  {% for tool in site.browser %}
+  {% for tool in site.audit %}
     {% include list-tools.html %}
   {% endfor %}
 </div>

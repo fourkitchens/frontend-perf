@@ -13,7 +13,7 @@ exclude: [CONTRIBUTING.md, README.md, SCHEDULE.md, TODO.md config.rb, package.js
 collections:
   foundation:
     output: true
-  browser:
+  audit:
     output: true
   drupal:
     output: true
@@ -41,29 +41,29 @@ navigation:
     text: About
     title: Basic info about this training
     url: /about/
-    accesskey: a
+    accesskey: q
   -
     text: Foundation
     title: Learn about the fundamentals of frontend performance
     url: /foundation/
-    accesskey: f
+    accesskey: w
   -
-    text: Browsers
-    title: Explore performance-related browser DevTools
-    url: /browsers/
-    accesskey: b
+    text: Audit
+    title: Explore performance-related auditing tools
+    url: /audit/
+    accesskey: e
   -
     text: Drupal
     title: Get the best frontend performance out of Drupal 7
     url: /drupal/
-    accesskey: d
+    accesskey: r
   -
     text: Workflow
     title: Automate your workflow and deployment
     url: /workflow/
-    accesskey: w
+    accesskey: t
   -
     text: Budgets
     title: Set and maintain a performance budget
     url: /budgets/
-    accesskey: b
+    accesskey: y
