@@ -14,6 +14,7 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var mincss = require('gulp-minify-css');
 var uncss = require('gulp-uncss');
+var uglify = require('gulp-uglify');
 
 // -----------------------------------------------------------------------------
 // Remove old CSS
@@ -99,6 +100,19 @@ gulp.task('uncss', function() {
 });
 
 // -----------------------------------------------------------------------------
+// Combine and Minify JS
+//
+// Just like the CSS task, the end result of this task is a minified aggregate
+// of JS ready to be served.
+// -----------------------------------------------------------------------------
+gulp.task('js', function() {
+  return gulp.src('_js/**/*.js')
+    .pipe(concat('all.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('js'));
+});
+
+// -----------------------------------------------------------------------------
 // Watch tasks
 //
 // These tasks are run whenever a file is saved. Don't confuse the files being
@@ -107,6 +121,7 @@ gulp.task('uncss', function() {
 // -----------------------------------------------------------------------------
 gulp.task('watch', function() {
   gulp.watch('_sass/**/*.scss', ['css']);
+  gulp.watch('_js/**/*.js', ['js']);
 });
 
 // -----------------------------------------------------------------------------
