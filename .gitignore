@@ -13,3 +13,6 @@ css
 
 # JS pipeline
 js
+
+# API keys
+settings.json

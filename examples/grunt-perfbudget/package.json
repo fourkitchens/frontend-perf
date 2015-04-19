@@ -1,0 +1,9 @@
+{
+  "name": "grunt_perfbudget_example",
+  "description": "An example implementation of grunt-perfbudget.",
+  "repository": "git@github.com:fourkitchens/frontend-perf.git",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-perfbudget": "^0.1.6"
+  }
+}
