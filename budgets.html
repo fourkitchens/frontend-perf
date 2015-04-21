@@ -6,9 +6,12 @@ title: Performance Budgets
   <h1>Performance Budgets</h1>
 </div>
 
-<div class="panel panel-warning float-right float-half">
+<div class="panel panel-info float-right float-half">
   <div class="panel-heading"><h3 class="panel-title">Note about Performance Budgets</h3></div>
-  <div class="panel-body">This is just as much a shift in workplace culture as it is process. Sometimes your client or product owner cannot or will not prioritize performance, so even with a warning system in place, you might not be afforded the time to fix it.</div>
+  <div class="panel-body">
+    <p>This is just as much a shift in workplace culture as it is process. Sometimes your client or product owner cannot or will not prioritize performance, so even with a warning system in place, you might not be afforded the time to fix it.</p>
+    <a class="btn btn-info" href="https://www.youtube.com/watch?v=yqejmZrtmNg">Watch video about Performance Budgets</a>
+  </div>
 </div>
 
 <p>The main difficulty most teams overcome is actually putting performance front and center during a normal workflow. Many problems are much harder to solve after weeks of work have been built on top of them. One way of finding problems early and often is the use of a <strong>performance budget</strong>.</p>
@@ -22,6 +25,7 @@ title: Performance Budgets
 <p><strong class="def">Time limits</strong> are the highest-level metric that can be measured, and are the most effective. The most frequently used time-limit is the <em>Speed Index</em> available on WebPageTest.org, which uses a combination of many factors to reliably determine when your pages become visible.</p>
 <p><strong class="def">Requests</strong> are a simple thing to measure but might not always tell the whole story. For instance, you could place a limit of four CSS requests, but if one of them has 250K of inline base64 data added during development, it will not trigger a warning as long as you still only have four CSS files.</p>
 <p><strong class="def">File size</strong> of your page as a whole is always something good to keep in mind, especially since most mobile data plans have download limits. A heavy site costs your users money! WebPageTest includes a <abbr title="US Dollar">$</abbr> indicator on every results page letting you see an estimate of how much a single page load of your site costs in various countries.</p>
+<p><strong class="def">Milestones</strong> are specific to your website or app. For example, Twitter has a "time to first tweet" milestone, meaning the measure performance based on how soon the user can read content.</p>
 
 <div class="page-header">
   <h2>Tools</h2>
