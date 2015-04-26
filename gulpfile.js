@@ -15,6 +15,8 @@ var concat = require('gulp-concat');
 var mincss = require('gulp-minify-css');
 var uncss = require('gulp-uncss');
 var uglify = require('gulp-uglify');
+var critical = require('critical');
+
 
 // -----------------------------------------------------------------------------
 // Remove old CSS
@@ -110,6 +112,38 @@ gulp.task('js', function() {
     .pipe(concat('all.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('js'));
+});
+
+// -----------------------------------------------------------------------------
+// Generate critical-path CSS
+//
+// This task generates a small, minimal amount of your CSS based on which rules
+// are visible (aka "above the fold") during a page load. We will use a Jekyll
+// template command to inline the CSS when the site is generated.
+//
+// All styles should be directly applying to an element visible when your
+// website renders. If the user has to scroll even a small amount, it's not
+// critical CSS.
+// -----------------------------------------------------------------------------
+gulp.task('critical', function (cb) {
+  critical.generate({
+    base: '_site/',
+    src: 'index.html',
+    css: ['css/all.min.css'],
+    dimensions: [{
+      width: 320,
+      height: 480
+    },{
+      width: 768,
+      height: 1024
+    },{
+      width: 1280,
+      height: 960
+    }],
+    dest: '../_includes/critical.css',
+    minify: true,
+    extract: false
+  });
 });
 
 // -----------------------------------------------------------------------------

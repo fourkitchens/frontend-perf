@@ -10,6 +10,11 @@
 
     <!-- Our custom styles -->
     <link rel="stylesheet" href="/css/main.css">
+
+    {% comment %}
+      <!-- When we generate critical CSS, uncomment this Jekyll statement -->
+      <style type="text/css">{% include critical.css %}</style>
+    {% endcomment %}
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
