@@ -13,6 +13,7 @@ var sass = require('gulp-sass');
 // Performance workflow plugins
 var concat = require('gulp-concat');
 var mincss = require('gulp-minify-css');
+var imagemin = require('gulp-imagemin');
 var uncss = require('gulp-uncss');
 var uglify = require('gulp-uglify');
 var critical = require('critical');
@@ -147,6 +148,22 @@ gulp.task('critical', function (cb) {
 });
 
 // -----------------------------------------------------------------------------
+// Minify SVGs and compress images
+//
+// It's good to maintain high-quality, uncompressed assets in your codebase.
+// However, it's not always appropriate to serve such high-bandwidth assets to
+// users, in order to reduce mobile data plan usage.
+// -----------------------------------------------------------------------------
+gulp.task('imagemin', function() {
+  return gulp.src('_img/**/*')
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}]
+    }))
+    .pipe(gulp.dest('img'));
+});
+
+// -----------------------------------------------------------------------------
 // Watch tasks
 //
 // These tasks are run whenever a file is saved. Don't confuse the files being
@@ -156,6 +173,7 @@ gulp.task('critical', function (cb) {
 gulp.task('watch', function() {
   gulp.watch('_sass/**/*.scss', ['css']);
   gulp.watch('_js/**/*.js', ['js']);
+  gulp.watch('_img/**/*', ['imagemin']);
 });
 
 // -----------------------------------------------------------------------------
