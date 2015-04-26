@@ -14,4 +14,4 @@ links:
 
 WebPageTest (WPT) is currently the most reliable method for determining the perceived performance of your website or app. It combines a large number of factors to produce a **Speed Index** which closely approximates when a user starts to see your webpage.
 
-You can run the tests from many geographical locations, all data is easily accessible, and it can be saved. WPT also has other scores, such as a score to estimate how expensive your site is to download and view on a standard mobile data plan.
+You can run the tests from many geographical locations, all data is easily accessible, and it can be saved.
