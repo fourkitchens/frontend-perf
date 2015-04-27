@@ -2,6 +2,9 @@
 //   Main Sass file
 // -----------------------------------------------------------------------------
 
+// Global styles
+@import 'global/type';
+
 // Bootstrap overrides
 @import 'bootstrap/container';
 @import 'bootstrap/jumbotron';
