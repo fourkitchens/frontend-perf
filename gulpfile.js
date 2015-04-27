@@ -280,9 +280,19 @@ gulp.task('critical-test', function () {
     // Exit status of anything else means the test failed.
     else {
       log('Critical:', c.red('✘ Rats! The generated CSS makes ' + code + ' external requests.'));
+      process.exit(1);
     }
   });
 });
+
+// -----------------------------------------------------------------------------
+// Performance test: run everything at once
+//
+// Having a task that simply runs other tasks is nice for Travis or other CI
+// solutions, because you only have to specify one command, and gulp handles
+// the rest.
+// -----------------------------------------------------------------------------
+gulp.task('test', ['critical-test', 'psi']);
 
 // -----------------------------------------------------------------------------
 // Default: load task listing
