@@ -4,6 +4,7 @@ var u = require('gulp-util');
 var log = u.log;
 var c = u.colors;
 var del = require('del');
+var spawn = require('child_process').spawn;
 var tasks = require('gulp-task-listing');
 
 // Basic workflow plugins
@@ -174,6 +175,44 @@ gulp.task('watch', function() {
   gulp.watch('_sass/**/*.scss', ['css']);
   gulp.watch('_js/**/*.js', ['js']);
   gulp.watch('_img/**/*', ['imagemin']);
+});
+
+// -----------------------------------------------------------------------------
+// Performance Test: Phantomas
+//
+// Phantomas can be used to test granular performance metrics. This example
+// ensures that the site never exceeds a specific number of HTTP requests.
+// -----------------------------------------------------------------------------
+gulp.task('phantomas', function() {
+  var limit = 5;
+  var phantomas = spawn('./node_modules/.bin/phantomas', ['--url', 'http://localhost:4000', '--assert-requests=' + limit]);
+
+  // Uncomment this block to see the full Phantomas output.
+  // phantomas.stdout.on('data', function (data) {
+  //   data = data.toString().slice(0, -1);
+  //   log('Phantomas:', data);
+  // });
+
+  phantomas.on('error', function (err) {
+    log(err);
+  });
+
+  phantomas.on('close', function (code) {
+    // Exit status of 0 means success!
+    if (code === 0) {
+      log('Phantomas:', c.green('✔︎ Yay! The site makes ' + limit + ' or fewer HTTP requests.'))
+    }
+
+    // Exit status of 1 means the site failed the test.
+    else if (code === 1) {
+      log('Phantomas:', c.red('✘ Rats! The site makes more than ' + limit + ' HTTP requests.'));
+    }
+
+    // Other exit codes indicate problems with the test itself, not a failed test.
+    else {
+      log('Phantomas:', c.bgRed('', c.black('Something went wrong. Exit code'), code, ''));
+    }
+  });
 });
 
 // -----------------------------------------------------------------------------
