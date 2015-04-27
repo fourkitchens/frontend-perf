@@ -9,6 +9,6 @@ then
   echo "Phantomas: ✔︎ Yay! The site makes $LIMIT or fewer HTTP requests."
   exit 0
 else
-  echo "Phantomas: ✘ Rats! The site makes more than $LIMIT HTTP requests." >&2
+  echo "Phantomas: ✘ Rats! The site makes more than $LIMIT HTTP requests."
   exit 1
 fi
