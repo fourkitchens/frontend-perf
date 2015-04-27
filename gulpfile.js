@@ -253,6 +253,36 @@ gulp.task('psi', function() {
 });
 
 // -----------------------------------------------------------------------------
+// Performance test: Critical CSS
+//
+// This test checks our generated critical CSS to make sure there are no external
+// requests which would block rendering. Having external calls defeats the entire
+// purpose of inlining the CSS, since the external call blocks rendering.
+// -----------------------------------------------------------------------------
+gulp.task('critical-test', function () {
+  // Spawn our critical CSS test and suppress all output.
+  var critical = spawn('./examples/critical/critical.sh', ['>/dev/null']);
+
+  // Catch any errors.
+  critical.on('error', function (err) {
+    log(err);
+  });
+
+  // Log results to console.
+  critical.on('close', function (code) {
+    // Exit status of 0 means success!
+    if (code === 0) {
+      log('Critical:', c.green('✔︎ Yay! The generated CSS makes zero external requests.'))
+    }
+
+    // Exit status of anything else means the test failed.
+    else {
+      log('Critical:', c.red('✘ Rats! The generated CSS makes ' + code + ' external requests.'));
+    }
+  });
+});
+
+// -----------------------------------------------------------------------------
 // Default: load task listing
 //
 // Instead of launching some unspecified build process when someone innocently
