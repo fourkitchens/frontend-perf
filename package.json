@@ -12,11 +12,14 @@
     "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
+    "gulp-exit": "0.0.2",
     "gulp-imagemin": "^2.2.1",
     "gulp-minify-css": "^1.0.0",
     "gulp-task-listing": "^1.0.0",
     "gulp-uglify": "^1.2.0",
     "gulp-uncss": "^1.0.1",
-    "phantomas": "^1.10.0"
+    "ngrok": "^0.1.99",
+    "phantomas": "^1.10.0",
+    "psi": "^1.0.6"
   }
 }

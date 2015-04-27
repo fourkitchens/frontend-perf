@@ -19,6 +19,9 @@ var uncss = require('gulp-uncss');
 var uglify = require('gulp-uglify');
 var critical = require('critical');
 
+// Performance testing plugins
+var psi = require('psi');
+var ngrok = require('ngrok');
 
 // -----------------------------------------------------------------------------
 // Remove old CSS
@@ -212,6 +215,31 @@ gulp.task('phantomas', function() {
     else {
       log('Phantomas:', c.bgRed('', c.black('Something went wrong. Exit code'), code, ''));
     }
+  });
+});
+
+// -----------------------------------------------------------------------------
+// PageSpeed Insights: Formatted report
+//
+// Initializes a public tunnel so the PageSpeed service can access your local
+// site, then it tests the site. This task outputs the standard PageSpeed results.
+// -----------------------------------------------------------------------------
+gulp.task('psi', function() {
+  // Set up a public tunnel so PageSpeed can see the local site.
+  return ngrok.connect(4000, function (err_ngrok, url) {
+    log(c.cyan('ngrok'), '- serving your site from', c.yellow(url));
+
+    // Run PageSpeed once the tunnel is up.
+    psi.output(url, {
+      strategy: 'mobile',
+      threshold: 80
+    }, function (err_psi, data) {
+      // Log any potential errors
+      if (err_psi) log(err_psi);
+
+      // Kill the ngrok tunnel.
+      process.exit();
+    });
   });
 });
 
