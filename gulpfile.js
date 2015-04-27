@@ -223,6 +223,12 @@ gulp.task('phantomas', function() {
 //
 // Initializes a public tunnel so the PageSpeed service can access your local
 // site, then it tests the site. This task outputs the standard PageSpeed results.
+//
+// The task will output a standard exit code based on the result of the PSI test
+// results. 0 is success and any other number is a failure. To learn more about
+// bash-compatible exit status codes read this page:
+//
+// http://tldp.org/LDP/abs/html/exit-status.html
 // -----------------------------------------------------------------------------
 gulp.task('psi', function() {
   // Set up a public tunnel so PageSpeed can see the local site.
@@ -234,11 +240,14 @@ gulp.task('psi', function() {
       strategy: 'mobile',
       threshold: 80
     }, function (err_psi, data) {
-      // Log any potential errors
-      if (err_psi) log(err_psi);
+      // Log any potential errors and return a FAILURE.
+      if (err_psi) {
+        log(err_psi);
+        process.exit(1);
+      }
 
-      // Kill the ngrok tunnel.
-      process.exit();
+      // Kill the ngrok tunnel and return SUCCESS.
+      process.exit(0);
     });
   });
 });
