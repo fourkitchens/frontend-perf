@@ -181,7 +181,7 @@ gulp.task('watch', function() {
 });
 
 // -----------------------------------------------------------------------------
-// Performance Test: Phantomas
+// Performance test: Phantomas
 //
 // Phantomas can be used to test granular performance metrics. This example
 // ensures that the site never exceeds a specific number of HTTP requests.
@@ -196,10 +196,12 @@ gulp.task('phantomas', function() {
   //   log('Phantomas:', data);
   // });
 
+  // Catch any errors.
   phantomas.on('error', function (err) {
     log(err);
   });
 
+  // Log results to console.
   phantomas.on('close', function (code) {
     // Exit status of 0 means success!
     if (code === 0) {
@@ -219,7 +221,7 @@ gulp.task('phantomas', function() {
 });
 
 // -----------------------------------------------------------------------------
-// PageSpeed Insights: Formatted report
+// Performance test: PageSpeed Insights
 //
 // Initializes a public tunnel so the PageSpeed service can access your local
 // site, then it tests the site. This task outputs the standard PageSpeed results.
