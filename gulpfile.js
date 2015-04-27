@@ -205,7 +205,7 @@ gulp.task('phantomas', function() {
   phantomas.on('close', function (code) {
     // Exit status of 0 means success!
     if (code === 0) {
-      log('Phantomas:', c.green('✔︎ Yay! The site makes ' + limit + ' or fewer HTTP requests.'))
+      log('Phantomas:', c.green('✔︎ Yay! The site makes ' + limit + ' or fewer HTTP requests.'));
     }
 
     // Exit status of 1 means the site failed the test.
@@ -274,7 +274,7 @@ gulp.task('critical-test', function () {
   critical.on('close', function (code) {
     // Exit status of 0 means success!
     if (code === 0) {
-      log('Critical:', c.green('✔︎ Yay! The generated CSS makes zero external requests.'))
+      log('Critical:', c.green('✔︎ Yay! The generated CSS makes zero external requests.'));
     }
 
     // Exit status of anything else means the test failed.
