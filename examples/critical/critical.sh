@@ -11,13 +11,14 @@
 # making external calls. External calls completely defeat the purpose of
 # inlining CSS in your HTML.
 
-FACE=`grep -c 'face' _includes/critical.css`
+FACE=`grep -c 'font-face' _includes/critical.css`
 URL=`grep -c 'url' _includes/critical.css`
 
 if [ "$FACE" == "0" ] && [ "$URL" == "0" ]; then
   echo "Critical: ✔︎ Yay! The generated CSS makes zero external requests."
   exit 0
 else
-  echo "Critical: ✘ Rats! The generated CSS makes external requests."
-  exit 1
+  TOTAL=$(($FACE + $URL))
+  echo "Critical: ✘ Rats! The generated CSS makes $TOTAL external requests."
+  exit $TOTAL
 fi
