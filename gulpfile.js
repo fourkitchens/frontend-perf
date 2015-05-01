@@ -240,7 +240,7 @@ gulp.task('bs', ['css', 'js', 'imagemin', 'jekyll', 'browser-sync', 'watch']);
 // ensures that the site never exceeds a specific number of HTTP requests.
 // -----------------------------------------------------------------------------
 gulp.task('phantomas', function() {
-  var limit = 5;
+  var limit = 20;
   var phantomas = spawn('./node_modules/.bin/phantomas', ['--url', 'http://localhost:4000', '--assert-requests=' + limit]);
 
   // Uncomment this block to see the full Phantomas output.
@@ -295,7 +295,7 @@ gulp.task('psi', function() {
     // Run PageSpeed once the tunnel is up.
     psi.output(url, {
       strategy: 'mobile',
-      threshold: 80
+      threshold: 60
     }, function (err_psi, data) {
       // Log any potential errors and return a FAILURE.
       if (err_psi) {
