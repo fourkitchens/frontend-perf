@@ -333,7 +333,7 @@ gulp.task('critical-test', function () {
 // solutions, because you only have to specify one command, and gulp handles
 // the rest.
 // -----------------------------------------------------------------------------
-gulp.task('test', ['critical-test', 'psi']);
+gulp.task('test', ['critical-test', 'psi', 'phantomas']);
 
 // -----------------------------------------------------------------------------
 // Default: load task listing
