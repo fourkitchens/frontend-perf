@@ -10,6 +10,8 @@ var tasks = require('gulp-task-listing');
 // Basic workflow plugins
 var prefix = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
+var bs = require('browser-sync');
+var reload = bs.reload;
 
 // Performance workflow plugins
 var concat = require('gulp-concat');
@@ -76,7 +78,9 @@ gulp.task('css', ['clean-css', 'sass'], function() {
   return gulp.src('css/*.css')
     .pipe(concat('all.min.css'))
     .pipe(mincss())
-    .pipe(gulp.dest('css'));
+    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('_site/css'))
+    .pipe(reload({stream: true}));
 });
 
 
@@ -116,7 +120,8 @@ gulp.task('js', function() {
   return gulp.src('_js/**/*.js')
     .pipe(concat('all.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('js'));
+    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('_site/js'));
 });
 
 // -----------------------------------------------------------------------------
@@ -168,17 +173,53 @@ gulp.task('imagemin', function() {
 });
 
 // -----------------------------------------------------------------------------
+// Jekyll
+//
+// Regenerate the Jekyll site when files are touched. The --watch flag is not
+// used because the bs/watch tasks will handle the "watching" of the files.
+// -----------------------------------------------------------------------------
+gulp.task('jekyll', function() {
+  return spawn('bundle', ['exec', 'jekyll', 'build', '--config=_config.yml'], {stdio: 'inherit'})
+    .on('close', reload);
+});
+
+// -----------------------------------------------------------------------------
+// Browser Sync
+//
+// Makes web development better by eliminating the need to refresh. Essential
+// for CSS development and multi-device testing.
+// -----------------------------------------------------------------------------
+gulp.task('browser-sync', function() {
+  bs({
+    server: './_site/'
+  });
+});
+
+// -----------------------------------------------------------------------------
 // Watch tasks
 //
 // These tasks are run whenever a file is saved. Don't confuse the files being
 // watched (gulp.watch blobs in this task) with the files actually operated on
 // by the gulp.src blobs in each individual task.
+//
+// A few of the performance-related tasks are excluded because they can take a
+// bit of time to run and don't need to happen on every file change. If you want
+// to run those tasks more frequently, set up a new watch task here.
 // -----------------------------------------------------------------------------
 gulp.task('watch', function() {
   gulp.watch('_sass/**/*.scss', ['css']);
   gulp.watch('_js/**/*.js', ['js']);
   gulp.watch('_img/**/*', ['imagemin']);
+  gulp.watch(['./**/*.{md,html}', '!./_site/**/*.*', '!./node_modules/**/*.*'], ['jekyll']);
 });
+
+// -----------------------------------------------------------------------------
+// Convenience task for development.
+//
+// This is the command you run to warm the site up for development. It will do
+// a full build, open BrowserSync, and start listening for changes.
+// -----------------------------------------------------------------------------
+gulp.task('bs', ['css', 'js', 'imagemin', 'jekyll', 'browser-sync', 'watch']);
 
 // -----------------------------------------------------------------------------
 // Performance test: Phantomas
