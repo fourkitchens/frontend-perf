@@ -5,6 +5,7 @@ var log = u.log;
 var c = u.colors;
 var del = require('del');
 var spawn = require('child_process').spawn;
+var sequence = require('run-sequence');
 var tasks = require('gulp-task-listing');
 
 // Basic workflow plugins
@@ -184,6 +185,17 @@ gulp.task('jekyll', function() {
 });
 
 // -----------------------------------------------------------------------------
+// Jekyll Serve
+//
+// This command is used exclusively by Travis to start Jekyll in the background
+// then run tests against it.
+// -----------------------------------------------------------------------------
+gulp.task('jekyll-serve', function(callback) {
+  spawn('bundle', ['exec', 'jekyll', 'serve', '--detach', '--no-watch', '--config=_config.yml'], {stdio: 'inherit'})
+    .on('close', callback)
+});
+
+// -----------------------------------------------------------------------------
 // Browser Sync
 //
 // Makes web development better by eliminating the need to refresh. Essential
@@ -228,7 +240,7 @@ gulp.task('bs', ['css', 'js', 'imagemin', 'jekyll', 'browser-sync', 'watch']);
 // ensures that the site never exceeds a specific number of HTTP requests.
 // -----------------------------------------------------------------------------
 gulp.task('phantomas', function() {
-  var limit = 5;
+  var limit = 20;
   var phantomas = spawn('./node_modules/.bin/phantomas', ['--url', 'http://localhost:4000', '--assert-requests=' + limit]);
 
   // Uncomment this block to see the full Phantomas output.
@@ -252,11 +264,13 @@ gulp.task('phantomas', function() {
     // Exit status of 1 means the site failed the test.
     else if (code === 1) {
       log('Phantomas:', c.red('✘ Rats! The site makes more than ' + limit + ' HTTP requests.'));
+      process.exit(code);
     }
 
     // Other exit codes indicate problems with the test itself, not a failed test.
     else {
       log('Phantomas:', c.bgRed('', c.black('Something went wrong. Exit code'), code, ''));
+      process.exit(code);
     }
   });
 });
@@ -281,7 +295,7 @@ gulp.task('psi', function() {
     // Run PageSpeed once the tunnel is up.
     psi.output(url, {
       strategy: 'mobile',
-      threshold: 80
+      threshold: 60
     }, function (err_psi, data) {
       // Log any potential errors and return a FAILURE.
       if (err_psi) {
@@ -321,7 +335,7 @@ gulp.task('critical-test', function () {
     // Exit status of anything else means the test failed.
     else {
       log('Critical:', c.red('✘ Rats! The generated CSS makes ' + code + ' external requests.'));
-      process.exit(1);
+      process.exit(code);
     }
   });
 });
@@ -333,7 +347,15 @@ gulp.task('critical-test', function () {
 // solutions, because you only have to specify one command, and gulp handles
 // the rest.
 // -----------------------------------------------------------------------------
-gulp.task('test', ['critical-test', 'psi']);
+gulp.task('test', function (callback) {
+  sequence(
+    'jekyll-serve',
+    'critical-test',
+    'phantomas',
+    'psi',
+    callback
+  );
+});
 
 // -----------------------------------------------------------------------------
 // Default: load task listing
