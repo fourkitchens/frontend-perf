@@ -252,11 +252,13 @@ gulp.task('phantomas', function() {
     // Exit status of 1 means the site failed the test.
     else if (code === 1) {
       log('Phantomas:', c.red('✘ Rats! The site makes more than ' + limit + ' HTTP requests.'));
+      process.exit(code);
     }
 
     // Other exit codes indicate problems with the test itself, not a failed test.
     else {
       log('Phantomas:', c.bgRed('', c.black('Something went wrong. Exit code'), code, ''));
+      process.exit(code);
     }
   });
 });
@@ -321,7 +323,7 @@ gulp.task('critical-test', function () {
     // Exit status of anything else means the test failed.
     else {
       log('Critical:', c.red('✘ Rats! The generated CSS makes ' + code + ' external requests.'));
-      process.exit(1);
+      process.exit(code);
     }
   });
 });
