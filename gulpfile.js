@@ -5,6 +5,7 @@ var log = u.log;
 var c = u.colors;
 var del = require('del');
 var spawn = require('child_process').spawn;
+var sequence = require('run-sequence');
 var tasks = require('gulp-task-listing');
 
 // Basic workflow plugins
@@ -335,7 +336,14 @@ gulp.task('critical-test', function () {
 // solutions, because you only have to specify one command, and gulp handles
 // the rest.
 // -----------------------------------------------------------------------------
-gulp.task('test', ['critical-test', 'psi', 'phantomas']);
+gulp.task('test', function (callback) {
+  sequence(
+    'critical-test',
+    'phantomas',
+    'psi',
+    callback
+  );
+});
 
 // -----------------------------------------------------------------------------
 // Default: load task listing
