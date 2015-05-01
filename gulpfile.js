@@ -185,6 +185,17 @@ gulp.task('jekyll', function() {
 });
 
 // -----------------------------------------------------------------------------
+// Jekyll Serve
+//
+// This command is used exclusively by Travis to start Jekyll in the background
+// then run tests against it.
+// -----------------------------------------------------------------------------
+gulp.task('jekyll-serve', function(callback) {
+  spawn('bundle', ['exec', 'jekyll', 'serve', '--detach', '--no-watch', '--config=_config.yml'], {stdio: 'inherit'})
+    .on('close', callback)
+});
+
+// -----------------------------------------------------------------------------
 // Browser Sync
 //
 // Makes web development better by eliminating the need to refresh. Essential
@@ -338,6 +349,7 @@ gulp.task('critical-test', function () {
 // -----------------------------------------------------------------------------
 gulp.task('test', function (callback) {
   sequence(
+    'jekyll-serve',
     'critical-test',
     'phantomas',
     'psi',

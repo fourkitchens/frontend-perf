@@ -3,6 +3,5 @@ node_js:
 - 0.12
 before_script:
 - bundle install
-- bundle exec jekyll serve --watch &
 script:
 - ./node_modules/.bin/gulp test
