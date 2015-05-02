@@ -35,3 +35,32 @@ title: Workflow Automation
     {% include list-tools.html %}
   {% endfor %}
 </div>
+
+<div class="page-header">
+  <h2>Activities</h2>
+</div>
+
+<p>How many of these goals can you complete? <strong>Use this site's gulpfile as a starting point.</strong></p>
+
+<div class="panel panel-success tasks">
+  <div class="panel-heading"><h3 class="panel-title">CSS Optimization</h3></div>
+  <div class="panel-body">
+    <ol>
+      <li><input type="checkbox"> <span>Get rid of CDN-hosted Bootstrap. Combine bootstrap files with the custom Sass the site already has.</span></li>
+      <li><input type="checkbox"> <span>Remove unused parts of bootstrap from the combined files.</span></li>
+      <li><input type="checkbox"> <span>Minify CSS.</span></li>
+      <li><input type="checkbox"> <span>Generate critical CSS and inline it.</span></li>
+      <li><input type="checkbox"> <span>Asynchronously load the full CSS file using loadCSS.</span></li>
+    </ol>
+  </div>
+</div>
+
+<div class="panel panel-success tasks">
+  <div class="panel-heading"><h3 class="panel-title">JS Optimization</h3></div>
+  <div class="panel-body">
+    <ol>
+      <li><input type="checkbox"> <span>Combine/minify JS</span></li>
+      <li><input type="checkbox"> <span>Use the <code>async</code> attribute to load JS asynchronously.</span></li>
+    </ol>
+  </div>
+</div>
