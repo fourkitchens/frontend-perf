@@ -3,6 +3,12 @@
 // -----------------------------------------------------------------------------
 
 .tasks {
+  // Make the checkbox a little bigger
+  input[type="checkbox"] {
+    font-size: 1.25em;
+    margin-right: .25em;
+  }
+
   // Mark tasks as "done"
   input[type="checkbox"]:checked + span {
     text-decoration: line-through;
