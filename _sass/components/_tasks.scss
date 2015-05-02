@@ -1,0 +1,10 @@
+// -----------------------------------------------------------------------------
+//   Activities and Tasks
+// -----------------------------------------------------------------------------
+
+.tasks {
+  // Mark tasks as "done"
+  input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+  }
+}
