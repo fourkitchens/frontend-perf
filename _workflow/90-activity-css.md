@@ -18,4 +18,7 @@ tasks:
   -
     id: automation-css-async
     text: Asynchronously load the full CSS file using loadCSS.
+  -
+    id: automation-css-critical-workflow
+    text: Generate critical CSS and inline it <em>as part of the CSS workflow</em>.
 ---
