@@ -1,0 +1,12 @@
+<div class="panel panel-success tasks">
+  <div class="panel-heading"><h3 class="panel-title">{{ activity.title }}</h3></div>
+  <div class="panel-body">
+    {{ activity.content }}
+
+    <ol class="tasks-list">
+      {% for task in activity.tasks %}
+        <li><input type="checkbox" id="{{ task.id }}"> <span class="desc">{{ task.text }}</span></li>
+      {% endfor %}
+    </div>
+  </div>
+</div>

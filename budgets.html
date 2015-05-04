@@ -48,26 +48,6 @@ title: Performance Budgets
 
 <p>How many of these goals can you complete? <strong>Use this site's codebase as a starting point.</strong></p>
 
-<div class="panel panel-success tasks">
-  <div class="panel-heading"><h3 class="panel-title">Testing</h3></div>
-  <div class="panel-body">
-    <ol>
-      <li><input type="checkbox"> <span>Change this site (or the test!) so that it passes the <code>phantomas</code> test.</span></li>
-      <li><input type="checkbox"> <span>Change this site (or the test!) so that it passes the <code>critical-test</code> test.</span></li>
-      <li><input type="checkbox"> <span>Change this site (or the test!) so that it passes the <code>psi</code> test.</span></li>
-      <li><input type="checkbox"> <span>Use the <code>grunt-perfbudget</code> test in the examples folder.</span></li>
-    </ol>
-  </div>
-</div>
-
-<div class="panel panel-success tasks">
-  <div class="panel-heading"><h3 class="panel-title">GitHub + Travis</h3></div>
-  <div class="panel-body">
-    <ol>
-      <li><input type="checkbox"> <span>Fork the training repo on GitHub and clone it locally.</span></li>
-      <li><input type="checkbox"> <span>Successfully push your changes to your own fork after passing the local performance tests.</span></li>
-      <li><input type="checkbox"> <span>Create a PR to the main repo.</span></li>
-      <li><input type="checkbox"> <span style="position: relative; ">Make changes until the Travis build passes and you see the beautiful <span class="btn btn-success" style="position: absolute; top: -10px; right: -155px; ">green merge button</span></span></li>
-    </ol>
-  </div>
-</div>
+{% for activity in site.budgets %}
+  {% if activity.type == 'activity' %}{% include list-tasks.html %}{% endif %}
+{% endfor %}

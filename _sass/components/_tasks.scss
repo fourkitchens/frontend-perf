@@ -3,6 +3,18 @@
 // -----------------------------------------------------------------------------
 
 .tasks {
+  // Allow for some nudging of elements within spacific tasks.
+  .desc {
+    position: relative;
+
+    // For the GH+Travis activity
+    .btn-merge {
+      position: absolute;
+      top: -10px;
+      right: -155px;
+    }
+  }
+
   // Make the checkbox a little bigger
   input[type="checkbox"] {
     font-size: 1.25em;
@@ -10,7 +22,7 @@
   }
 
   // Mark tasks as "done"
-  input[type="checkbox"]:checked + span {
+  input[type="checkbox"]:checked + .desc {
     text-decoration: line-through;
   }
 }

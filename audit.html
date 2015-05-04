@@ -39,27 +39,6 @@ title: Auditing Performance
 
 <p>How many of these goals can you complete?</p>
 
-<div class="panel panel-success tasks">
-  <div class="panel-heading"><h3 class="panel-title">Browser DevTools</h3></div>
-  <div class="panel-body">
-    <ol>
-      <li><input type="checkbox"> <span>Use the <strong>Network tab</strong> to see the total page weight and time until DOMContentLoaded event.</span></li>
-      <li><input type="checkbox"> <span>Use the <strong>Network tab</strong> to find the heaviest resource on a web page.</span></li>
-      <li><input type="checkbox"> <span>Use the <strong>Network tab</strong> to find the resource with the most latency.</span></li>
-      <li><input type="checkbox"> <span>Look at the life cycle of the latent request and determine where the latency ocurred.</span></li>
-    </ol>
-  </div>
-</div>
-
-<div class="panel panel-success tasks">
-  <div class="panel-heading"><h3 class="panel-title">Auditing Services</h3></div>
-  <div class="panel-body">
-    <ol>
-      <li><input type="checkbox"> <span>Use <strong>Google PageSpeed</strong> to analyze a web page. Use the information to make a plan for fixing the issues.</span></li>
-      <li><input type="checkbox"> <span>Use <strong>WebPageTest</strong> to determine how long it takes a web page to start rendering using an iPhone 4 on 3G mobile connection.</span></li>
-      <li><input type="checkbox"> <span>Use <strong>WebPageTest</strong> to determine the differences between a "cold" load (first-time visit) versus a repeat visit with browser cache primed.</span></li>
-      <li><input type="checkbox"> <span>Use <strong>WebPageTest</strong> to generate a film-strip of a web page render.</span></li>
-      <li><input type="checkbox"> <span>Use <strong>WhatDoesMySiteCost</strong> to roughly determine the cost of a web page in various countries.</span></li>
-    </ol>
-  </div>
-</div>
+{% for activity in site.audit %}
+  {% if activity.type == 'activity' %}{% include list-tasks.html %}{% endif %}
+{% endfor %}
