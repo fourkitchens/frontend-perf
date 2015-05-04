@@ -122,7 +122,8 @@ gulp.task('js', function() {
     .pipe(concat('all.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('js'))
-    .pipe(gulp.dest('_site/js'));
+    .pipe(gulp.dest('_site/js'))
+    .pipe(reload({stream: true}));
 });
 
 // -----------------------------------------------------------------------------
