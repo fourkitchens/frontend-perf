@@ -18,4 +18,13 @@ tasks:
   -
     id: services-wpt-cost
     text: Use <strong>WhatDoesMySiteCost</strong> to roughly determine the cost of a web page in various countries.
+  -
+    id: services-yslow-worst
+    text: Use <strong>YSlow</strong> to identify the biggest performance problems with a site.
+  -
+    id: services-yslow-js
+    text: Use <strong>YSlow</strong> to identify all JavaScript-related scores and determine how to fix them (if needed).
+  -
+    id: services-yslow-ruleset
+    text: Use <strong>YSlow</strong> with the ruleset designed for small sites and blogs. Compare the score to YSlow v2.
 ---
