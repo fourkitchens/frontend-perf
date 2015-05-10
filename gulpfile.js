@@ -76,6 +76,8 @@ gulp.task('sass', function() {
 // to be served.
 // -----------------------------------------------------------------------------
 gulp.task('css', ['clean-css', 'sass'], function() {
+  bs.notify('<span style="color: grey">Running:</span> CSS task');
+
   return gulp.src('css/*.css')
     .pipe(concat('all.min.css'))
     .pipe(mincss())
@@ -181,6 +183,8 @@ gulp.task('imagemin', function() {
 // used because the bs/watch tasks will handle the "watching" of the files.
 // -----------------------------------------------------------------------------
 gulp.task('jekyll', function() {
+  bs.notify('<span style="color: grey">Running:</span> Jekyll task');
+
   return spawn('bundle', ['exec', 'jekyll', 'build', '--config=_config.yml'], {stdio: 'inherit'})
     .on('close', reload);
 });
