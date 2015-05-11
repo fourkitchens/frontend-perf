@@ -1,5 +1,5 @@
 ---
-title: Theming optimization
+title: Media optimization
 type: activity
 
 tasks:
