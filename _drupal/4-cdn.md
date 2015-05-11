@@ -1,5 +1,6 @@
 ---
 title: Content Delivery Network (CDN)
+type: tool
 
 links:
   -

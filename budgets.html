@@ -33,7 +33,7 @@ title: Performance Budgets
 
 <div class="tools col2">
   {% for tool in site.budgets %}
-    {% include list-tools.html %}
+    {% if tool.type == 'tool' %}{% include list-tools.html %}{% endif %}
   {% endfor %}
 </div>
 

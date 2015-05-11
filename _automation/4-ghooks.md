@@ -1,5 +1,6 @@
 ---
 title: git hooks
+type: tool
 
 links:
   -

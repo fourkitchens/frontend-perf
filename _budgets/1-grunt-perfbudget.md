@@ -1,5 +1,6 @@
 ---
 title: grunt-perfbudget
+type: tool
 
 links:
   -

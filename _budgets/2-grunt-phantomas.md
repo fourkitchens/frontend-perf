@@ -1,5 +1,6 @@
 ---
 title: grunt-phantomas
+type: tool
 
 links:
   -

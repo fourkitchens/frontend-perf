@@ -1,5 +1,6 @@
 ---
 title: Grunt
+type: tool
 
 links:
   -

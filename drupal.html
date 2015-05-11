@@ -8,7 +8,7 @@ title: Drupal modules
 
 <dl class="tools col2">
   {% for tool in site.drupal %}
-    {% include list-tools.html %}
+    {% if tool.type == 'tool' %}{% include list-tools.html %}{% endif %}
   {% endfor %}
 </dl>
 

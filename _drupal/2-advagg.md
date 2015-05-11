@@ -1,5 +1,6 @@
 ---
 title: Advanced CSS/JS Aggregation
+type: tool
 
 links:
   -

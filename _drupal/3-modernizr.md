@@ -1,5 +1,6 @@
 ---
 title: Modernizr
+type: tool
 
 links:
   -

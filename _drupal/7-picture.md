@@ -1,5 +1,6 @@
 ---
 title: Picture
+type: tool
 
 links:
   -

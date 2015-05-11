@@ -1,5 +1,6 @@
 ---
 title: gulp-imagemin
+type: tool
 
 links:
   -

@@ -1,5 +1,6 @@
 ---
 title: gulp-concat
+type: tool
 
 links:
   -

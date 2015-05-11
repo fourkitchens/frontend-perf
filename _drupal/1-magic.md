@@ -1,5 +1,6 @@
 ---
 title: Magic
+type: tool
 
 links:
   -

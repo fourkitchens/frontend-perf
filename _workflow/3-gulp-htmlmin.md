@@ -1,5 +1,6 @@
 ---
 title: gulp-htmlmin
+type: tool
 
 links:
   -

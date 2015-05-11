@@ -1,5 +1,6 @@
 ---
 title: npm
+type: tool
 
 links:
   -

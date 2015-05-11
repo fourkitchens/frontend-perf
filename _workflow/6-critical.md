@@ -1,5 +1,6 @@
 ---
 title: critical
+type: tool
 
 links:
   -

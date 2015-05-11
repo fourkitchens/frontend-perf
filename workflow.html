@@ -22,7 +22,7 @@ title: Workflow Automation
 
 <div class="tools col2">
   {% for tool in site.automation %}
-    {% include list-tools.html %}
+    {% if tool.type == 'tool' %}{% include list-tools.html %}{% endif %}
   {% endfor %}
 </div>
 
@@ -32,7 +32,7 @@ title: Workflow Automation
 
 <div class="tools col2">
   {% for tool in site.workflow %}
-    {% include list-tools.html %}
+    {% if tool.type == 'tool' %}{% include list-tools.html %}{% endif %}
   {% endfor %}
 </div>
 

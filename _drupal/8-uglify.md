@@ -1,5 +1,6 @@
 ---
 title: UglifyJS
+type: tool
 
 links:
   -

@@ -1,5 +1,6 @@
 ---
 title: gulp-uglify
+type: tool
 
 links:
   -

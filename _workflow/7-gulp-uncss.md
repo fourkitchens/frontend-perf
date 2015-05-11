@@ -1,5 +1,6 @@
 ---
 title: gulp-uncss
+type: tool
 
 links:
   -

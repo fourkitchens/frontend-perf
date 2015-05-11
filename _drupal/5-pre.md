@@ -1,5 +1,6 @@
 ---
 title: Pre
+type: tool
 
 links:
   -

@@ -1,5 +1,6 @@
 ---
 title: gulp-minify-css
+type: tool
 
 links:
   -

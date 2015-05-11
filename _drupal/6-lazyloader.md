@@ -1,5 +1,6 @@
 ---
 title: Image Lazyloader
+type: tool
 
 links:
   -
