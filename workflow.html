@@ -40,7 +40,7 @@ title: Workflow Automation
   <h2>Activities</h2>
 </div>
 
-<p>How many of these goals can you complete? <strong>Use this site's codebase and gulpfile as a starting point.</strong></p>
+{% include goals-codebase.html %}
 
 {% for activity in site.workflow %}
   {% if activity.type == 'activity' %}{% include list-tasks.html %}{% endif %}

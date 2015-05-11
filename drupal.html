@@ -16,7 +16,7 @@ title: Drupal modules
   <h2>Activities</h2>
 </div>
 
-<p>How many of these goals can you complete?</p>
+{% include goals.html %}
 
 {% for activity in site.drupal %}
   {% if activity.type == 'activity' %}{% include list-tasks.html %}{% endif %}

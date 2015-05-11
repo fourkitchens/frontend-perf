@@ -37,7 +37,7 @@ title: Auditing Performance
   <h2>Activities</h2>
 </div>
 
-<p>How many of these goals can you complete?</p>
+{% include goals.html %}
 
 {% for activity in site.audit %}
   {% if activity.type == 'activity' %}{% include list-tasks.html %}{% endif %}
