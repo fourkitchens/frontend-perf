@@ -213,6 +213,29 @@ gulp.task('browser-sync', function() {
 });
 
 // -----------------------------------------------------------------------------
+// Browser Sync using Proxy server
+//
+// This is a second (unused) example to demonstrate how you'd connect to a local
+// server that runs itself. Examples would be a PHP site such as Wordpress or a
+// Drupal site, or a node.js site like Express.
+//
+// Usage: gulp browser-sync-proxy --port 8080
+// -----------------------------------------------------------------------------
+gulp.task('browser-sync-proxy', function () {
+  bs({
+    // Point this to your pre-existing server.
+    proxy: 'my-local-site.dev' + (u.env.port ? ':' + u.env.port : ''),
+    // This tells BrowserSync to auto-open a tab once it boots.
+    open: true
+  }, function(err, bs) {
+    if (err) {
+      console.log(bs.options);
+    }
+  });
+});
+
+
+// -----------------------------------------------------------------------------
 // Watch tasks
 //
 // These tasks are run whenever a file is saved. Don't confuse the files being
