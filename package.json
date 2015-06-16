@@ -1,6 +1,7 @@
 {
   "name": "frontend-perf-training",
   "repository": "git@github.com:fourkitchens/frontend-perf.git",
+  "license": "MIT",
   "dependencies": {
     "bootstrap": "^3.3.4",
     "gulp-autoprefixer": "^2.1.0",
