@@ -12,7 +12,7 @@ This repo contains slides and materials to help you learn about frontend perform
 
 * [DrupalCon LA 2015](https://events.drupal.org/losangeles2015/training/frontend-performance-training)
 
-# Installation
+# Installation: OS X
 
 This repo uses Ruby and npm to power a Jekyll site. Assuming you already have [Homebrew](http://brew.sh/), the following commands will install the whole training kit for you (run them at the root of the repo):
 
@@ -32,4 +32,39 @@ rbenv install 2.0.0-p451
 
 # install the rest of the tools
 npm install
+```
+# Installation: Debian/Ubuntu
+
+```
+# update repositories
+sudo apt-get update
+
+# check for old node package
+dpkg --get-selections | grep node
+
+# if old node package installation found by previous command, remove it to avoid name collisions
+sudo apt-get remove --purge node
+
+# install node.js
+sudo apt-get install nodejs
+
+# create a symbolic link for “node” as many Node.js tools use this name to execute.
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+# install npm
+sudo apt-get install npm
+
+# install rvm
+\curl -sSL https://get.rvm.io | bash -s stable --rails
+source ~/.rvm/scripts/rvm
+
+# install ruby
+rvm install ruby-2.0.0-p451
+
+# install the rest of the tools
+npm install 
+
+# install and start jekyll
+gem install jekyll
+jekyll serve    
 ```
