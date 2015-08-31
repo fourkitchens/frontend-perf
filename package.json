@@ -13,7 +13,7 @@
     "critical": "^0.5.7",
     "del": "^1.1.1",
     "ghooks": "^0.3.2",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-concat": "^2.5.2",
     "gulp-exit": "0.0.2",
     "gulp-imagemin": "^2.2.1",
