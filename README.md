@@ -32,8 +32,13 @@ brew install ruby-build
 rbenv install 2.0.0-p451
 
 # install the rest of the tools
+bundle install
 npm install
+
+# run the development server
+gulp bs
 ```
+
 # Installation: Debian/Ubuntu
 
 ```
@@ -63,9 +68,10 @@ source ~/.rvm/scripts/rvm
 rvm install ruby-2.0.0-p451
 
 # install the rest of the tools
+cd path/to/this/repo
 npm install 
+bundle install
 
-# install and start jekyll
-gem install jekyll
-jekyll serve    
+# run the development server
+gulp bs
 ```
