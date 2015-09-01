@@ -4,7 +4,7 @@ type: service
 
 links:
   -
-    text: PageSpeed Insights
+    text: YSlow
     type: official
     url: http://yslow.org/
   -

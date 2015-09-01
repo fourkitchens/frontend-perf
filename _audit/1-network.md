@@ -6,7 +6,7 @@ links:
   -
     text: Chrome's Network tab
     type: official
-    url: https://developer.chrome.com/devtools/docs/network
+    url: https://developers.google.com/web/tools/profile-performance/network-performance/resource-loading
   -
     text: reading waterfalls
     type: more-info

@@ -9,4 +9,4 @@ links:
     url: https://www.npmjs.com/package/gulp-htmlmin
 ---
 
-minifies your HTML, removing comments and unnecessary whitespace.
+Minifies your HTML, removing comments and unnecessary whitespace.

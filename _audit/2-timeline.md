@@ -6,7 +6,7 @@ links:
   -
     text: Chrome's Timeline tab
     type: official
-    url: https://developer.chrome.com/devtools/docs/timeline
+    url: https://developers.google.com/web/tools/profile-performance/evaluate-performance/timeline-tool
   -
     text: Rendering Performance
     type: more-info

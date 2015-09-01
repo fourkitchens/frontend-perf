@@ -9,4 +9,4 @@ links:
     url: https://www.npmjs.com/package/gulp-imagemin
 ---
 
-compresses binary images and minifies SVG files, making your image assets as small as possible.
+Compresses binary images and minifies SVG files, making your image assets as small as possible.

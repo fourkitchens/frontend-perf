@@ -16,4 +16,4 @@ links:
     url: http://whatdoesmysitecost.com/
 ---
 
-uses the WebPageTest API to measure the _Speed Index_ of your site. Could be combined with git hooks to ensure a performance budget is passing before pushing code.
+Uses the WebPageTest API to measure the _Speed Index_ of your site. Could be combined with git hooks to ensure a performance budget is passing before pushing code.

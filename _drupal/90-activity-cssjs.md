@@ -21,4 +21,7 @@ tasks:
   -
     id: drupal-cssjs-advagg-bundler
     text: Use the <strong>AdvAgg module</strong> to control the number of CSS/JS aggregates on the Drupal site.
+  -
+    id: drupal-cssjs-advagg-load
+    text: Use the <strong>AdvAgg module</strong> to load CSS and JS asynchronously.
 ---
