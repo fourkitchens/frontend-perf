@@ -1,12 +1,17 @@
-// Gulp and node
-var gulp = require('gulp');
+// Gulp
+//
+// This is not a normal require, because our gulp-help tool (which provides the
+// nice task descriptions on the command-line) requires changing the function
+// signature of gulp tasks to include the task description.
+var gulp = require('gulp-help')(require('gulp'));
+
+// Gulp / Node utilities
 var u = require('gulp-util');
 var log = u.log;
 var c = u.colors;
 var del = require('del');
 var spawn = require('child_process').spawn;
 var sequence = require('run-sequence');
-var tasks = require('gulp-task-listing');
 
 // Basic workflow plugins
 var prefix = require('gulp-autoprefixer');
@@ -33,7 +38,7 @@ var ngrok = require('ngrok');
 // The 'uncss' task is slow to run and less frequently needed, so we keep the
 // build process fast by making uncss a manually-executed task.
 // -----------------------------------------------------------------------------
-gulp.task('clean-css', function() {
+gulp.task('clean-css', false, function() {
   return del(['css/{all,main}*'], function (err) {
     if (err) { log(c.red('clean-css'), err); }
     else {
@@ -51,7 +56,7 @@ gulp.task('clean-css', function() {
 // Compiles Sass and runs the CSS through autoprefixer. A separate task will
 // combine the compiled CSS with vendor files and minify the aggregate.
 // -----------------------------------------------------------------------------
-gulp.task('sass', function() {
+gulp.task('sass', 'Compiles Sass and uses autoprefixer', function() {
   return gulp.src('_sass/**/*.scss')
     .pipe(sass({
       outputStyle: 'nested',
@@ -75,7 +80,7 @@ gulp.task('sass', function() {
 // uncss-ed copies of bootstrap. The end result is a minified aggregate, ready
 // to be served.
 // -----------------------------------------------------------------------------
-gulp.task('css', ['clean-css', 'sass'], function() {
+gulp.task('css', 'Removes old CSS, compiles Sass, combines CSS, minifies CSS', ['clean-css', 'sass'], function() {
   bs.notify('<span style="color: grey">Running:</span> CSS task');
 
   return gulp.src('css/*.css')
@@ -97,7 +102,7 @@ gulp.task('css', ['clean-css', 'sass'], function() {
 // Note: this task requires a local server to be running because it references
 // the actual compiled site to calculate the unused styles.
 // -----------------------------------------------------------------------------
-gulp.task('uncss', function() {
+gulp.task('uncss', 'Removes unused CSS from frameworks', function() {
   return gulp.src([
       'node_modules/bootstrap/dist/css/bootstrap.css',
       'node_modules/bootstrap/dist/css/bootstrap-theme.css'
@@ -119,7 +124,7 @@ gulp.task('uncss', function() {
 // Just like the CSS task, the end result of this task is a minified aggregate
 // of JS ready to be served.
 // -----------------------------------------------------------------------------
-gulp.task('js', function() {
+gulp.task('js', 'Combines and minifies JS', function() {
   return gulp.src('_js/**/*.js')
     .pipe(concat('all.min.js'))
     .pipe(uglify())
@@ -139,7 +144,7 @@ gulp.task('js', function() {
 // website renders. If the user has to scroll even a small amount, it's not
 // critical CSS.
 // -----------------------------------------------------------------------------
-gulp.task('critical', function (cb) {
+gulp.task('critical', 'Generates critical CSS for the example site', function (cb) {
   critical.generate({
     base: '_site/',
     src: 'index.html',
@@ -167,7 +172,7 @@ gulp.task('critical', function (cb) {
 // However, it's not always appropriate to serve such high-bandwidth assets to
 // users, in order to reduce mobile data plan usage.
 // -----------------------------------------------------------------------------
-gulp.task('imagemin', function() {
+gulp.task('imagemin', 'Minifies and compresses images on the example site', function() {
   return gulp.src('_img/**/*')
     .pipe(imagemin({
       progressive: true,
@@ -182,7 +187,7 @@ gulp.task('imagemin', function() {
 // Regenerate the Jekyll site when files are touched. The --watch flag is not
 // used because the bs/watch tasks will handle the "watching" of the files.
 // -----------------------------------------------------------------------------
-gulp.task('jekyll', function() {
+gulp.task('jekyll', 'Development task: generate the Jekyll server', function() {
   bs.notify('<span style="color: grey">Running:</span> Jekyll task');
 
   return spawn('bundle', ['exec', 'jekyll', 'build', '--config=_config.yml'], {stdio: 'inherit'})
@@ -195,7 +200,7 @@ gulp.task('jekyll', function() {
 // This command is used exclusively by Travis to start Jekyll in the background
 // then run tests against it.
 // -----------------------------------------------------------------------------
-gulp.task('jekyll-serve', function(callback) {
+gulp.task('jekyll-serve', false, function(callback) {
   spawn('bundle', ['exec', 'jekyll', 'serve', '--detach', '--no-watch', '--config=_config.yml'], {stdio: 'inherit'})
     .on('close', callback)
 });
@@ -206,7 +211,7 @@ gulp.task('jekyll-serve', function(callback) {
 // Makes web development better by eliminating the need to refresh. Essential
 // for CSS development and multi-device testing.
 // -----------------------------------------------------------------------------
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', false, function() {
   bs({
     server: './_site/'
   });
@@ -221,7 +226,7 @@ gulp.task('browser-sync', function() {
 //
 // Usage: gulp browser-sync-proxy --port 8080
 // -----------------------------------------------------------------------------
-gulp.task('browser-sync-proxy', function () {
+gulp.task('browser-sync-proxy', false, function () {
   bs({
     // Point this to your pre-existing server.
     proxy: 'my-local-site.dev' + (u.env.port ? ':' + u.env.port : ''),
@@ -246,7 +251,7 @@ gulp.task('browser-sync-proxy', function () {
 // bit of time to run and don't need to happen on every file change. If you want
 // to run those tasks more frequently, set up a new watch task here.
 // -----------------------------------------------------------------------------
-gulp.task('watch', function() {
+gulp.task('watch', 'Watch for changes to various files and process them', function() {
   gulp.watch('_sass/**/*.scss', ['css']);
   gulp.watch('_js/**/*.js', ['js']);
   gulp.watch('_img/**/*', ['imagemin']);
@@ -259,7 +264,7 @@ gulp.task('watch', function() {
 // This is the command you run to warm the site up for development. It will do
 // a full build, open BrowserSync, and start listening for changes.
 // -----------------------------------------------------------------------------
-gulp.task('bs', ['css', 'js', 'imagemin', 'jekyll', 'browser-sync', 'watch']);
+gulp.task('bs', 'Main development task:', ['css', 'js', 'imagemin', 'jekyll', 'browser-sync', 'watch']);
 
 // -----------------------------------------------------------------------------
 // Performance test: Phantomas
@@ -267,7 +272,7 @@ gulp.task('bs', ['css', 'js', 'imagemin', 'jekyll', 'browser-sync', 'watch']);
 // Phantomas can be used to test granular performance metrics. This example
 // ensures that the site never exceeds a specific number of HTTP requests.
 // -----------------------------------------------------------------------------
-gulp.task('phantomas', function() {
+gulp.task('phantomas', 'Performance: measure a URL using Phantomas', function() {
   var limit = 5;
   var phantomas = spawn('./node_modules/.bin/phantomas', ['--url', 'http://localhost:4000', '--assert-requests=' + limit]);
 
@@ -315,7 +320,7 @@ gulp.task('phantomas', function() {
 //
 // http://tldp.org/LDP/abs/html/exit-status.html
 // -----------------------------------------------------------------------------
-gulp.task('psi', function() {
+gulp.task('psi', 'Performance: PageSpeed Insights', function() {
   // Set up a public tunnel so PageSpeed can see the local site.
   return ngrok.connect(4000, function (err_ngrok, url) {
     log(c.cyan('ngrok'), '- serving your site from', c.yellow(url));
@@ -344,7 +349,7 @@ gulp.task('psi', function() {
 // requests which would block rendering. Having external calls defeats the entire
 // purpose of inlining the CSS, since the external call blocks rendering.
 // -----------------------------------------------------------------------------
-gulp.task('critical-test', function () {
+gulp.task('critical-test', 'Performance: check the contents of critical CSS', function () {
   // Spawn our critical CSS test and suppress all output.
   var critical = spawn('./examples/critical/critical.sh', ['>/dev/null']);
 
@@ -375,7 +380,7 @@ gulp.task('critical-test', function () {
 // solutions, because you only have to specify one command, and gulp handles
 // the rest.
 // -----------------------------------------------------------------------------
-gulp.task('test', function (callback) {
+gulp.task('test', 'Run all tests', function (callback) {
   sequence(
     'jekyll-serve',
     'critical-test',
@@ -392,5 +397,4 @@ gulp.task('test', function (callback) {
 // types `gulp` into the command line, we provide a task listing so they know
 // what options they have without digging into the file.
 // -----------------------------------------------------------------------------
-gulp.task('help', tasks);
-gulp.task('default', ['help']);
+gulp.task('default', false, ['help']);
