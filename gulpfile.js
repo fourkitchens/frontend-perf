@@ -264,7 +264,7 @@ gulp.task('watch', 'Watch for changes to various files and process them', functi
 // This is the command you run to warm the site up for development. It will do
 // a full build, open BrowserSync, and start listening for changes.
 // -----------------------------------------------------------------------------
-gulp.task('bs', 'Main development task:', ['css', 'js', 'imagemin', 'jekyll', 'browser-sync', 'watch']);
+gulp.task('bs', 'Main development task:', ['css', 'js', /*'imagemin',*/ 'jekyll', 'browser-sync', 'watch']);
 
 // -----------------------------------------------------------------------------
 // Performance test: Phantomas
