@@ -11,6 +11,10 @@ links:
     text: using AdvAgg to inline critical CSS
     type: blog
     url: https://fourword.fourkitchens.com/article/use-grunt-and-advagg-inline-critical-css-drupal-7-theme
+  -
+    text: using AdvAgg to inspect aggregates
+    type: blog
+    url: https://fourword.fourkitchens.com/article/use-advagg-information-tab-debug-or-optimize-css-and-js-aggregates-drupal-7
 ---
 
 AdvAgg is another more advanced option, when your needs have outgrown Magic's functionality.
