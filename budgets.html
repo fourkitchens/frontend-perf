@@ -22,14 +22,18 @@ title: Performance Budgets
   <h2>Types of budgets</h2>
 </div>
 
-<p><strong class="def">Time limits</strong> are the highest-level metric that can be measured, and are the most effective. The most frequently used time-limit is the <a target="_blank" href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">Speed Index</a> available on WebPageTest.org, which uses a combination of many factors to reliably determine when your pages become visible.</p>
+<p><strong class="def">Time limits</strong> are a simple but effective metric that can be measured. Most any event can be listened for in the browser, and there are even whole Web APIs dedicated to performance timing.</p>
 <p><strong class="def">Requests</strong> are a simple thing to measure but might not always tell the whole story. For instance, you could place a limit of four CSS requests, but if one of them has 250K of inline base64 data added during development, it will not trigger a warning as long as you still only have four CSS files.</p>
 <p><strong class="def">File size</strong> of your page as a whole is always something good to keep in mind, especially since most mobile data plans have download limits. A heavy site costs your users money! WebPageTest includes a <abbr title="US Dollar">$</abbr> indicator on every results page letting you see an estimate of how much a single page load of your site costs in various countries.</p>
 <p><strong class="def">Milestones</strong> are specific to your website or app. For example, Twitter has a "time to first tweet" milestone, meaning the measure performance based on how soon the user can read content.</p>
+<p><strong class="def">Speed Index</strong> is a metric invented by WebPageTest.org, and combines many factors together which measure "visual completeness" and are able to factor in things like FOUT, giving better scores to sites that are progressively enhanced to be flexible and fault tolerant.
+  <br><br>Checking the Speed Index of various devices gives one of the most reliable indicators of real-world performance. It is also quick to reveal the performance impact of common sources of bloat, such as a slideshow at the top of a homepage. For that reason it can be a very effective bargaining tool during design or product discussions.</p>
 
+<br>
 <p>
   <a class="btn btn-primary" href="http://www.timkadlec.com/2014/11/performance-budget-metrics/">Performance budget metrics</a>
   <a class="btn btn-primary" href="http://danielmall.com/articles/how-to-make-a-performance-budget/">How to make a performance budget</a>
+  <a class="btn btn-primary" href="https://sites.google.com/a/webpagetest.org/docs/using-webpagetest/metrics/speed-index">Read Speed Index docs</a>
 </p>
 
 <div class="page-header">
