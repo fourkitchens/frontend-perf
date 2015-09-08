@@ -23,7 +23,8 @@
     "ngrok": "^0.1.99",
     "phantomas": "^1.10.0",
     "psi": "^1.0.6",
-    "run-sequence": "^1.1.0"
+    "run-sequence": "^1.1.0",
+    "webpagetest": "^0.3.3"
   },
   "config": {
     "ghooks": {

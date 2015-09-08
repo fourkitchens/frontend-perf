@@ -29,6 +29,7 @@ var critical = require('critical');
 
 // Performance testing plugins
 var psi = require('psi');
+var wpt = require('webpagetest');
 var ngrok = require('ngrok');
 
 // -----------------------------------------------------------------------------
@@ -374,6 +375,40 @@ gulp.task('critical-test', 'Performance: check the contents of critical CSS', fu
 });
 
 // -----------------------------------------------------------------------------
+// Performance test: WebPageTest.org
+//
+// Initializes a public tunnel so the PageSpeed service can access your local
+// site, then it tests the site. This task outputs the standard PageSpeed results.
+// -----------------------------------------------------------------------------
+gulp.task('wpt', 'Performance: WebPageTest.org', function () {
+  var keys = require('./settings.json');
+  var wpt_test = wpt('www.webpagetest.org', keys.wpt);
+
+  // Set up a public tunnel so WebPageTest can see the local site.
+  return ngrok.connect(4000, function (err_ngrok, url) {
+    log(c.cyan('ngrok'), '- serving your site from', c.yellow(url));
+
+    // The `url` variable was supplied by ngrok.
+    wpt_test.runTest(url, function(err_wpt, data_wpt) {
+      // Log any potential errors and return a FAILURE.
+      if (err_wpt) {
+        log(err_wpt);
+        process.exit(1);
+      }
+
+      // Open window to results.
+      var wpt_results = 'http://www.webpagetest.org/result/' + data_wpt.data.testId;
+      log(c.green('✔︎  Opening results page:', wpt_results));
+      spawn('open', [wpt_results]);
+
+      // Note to developer.
+      log(c.yellow('⚠️  Please keep this process running until WPT is finished.'));
+      log(c.yellow('⚠️  Once the results load, hit Control + C to kill this process.'));
+    });
+  });
+});
+
+// -----------------------------------------------------------------------------
 // Performance test: run everything at once
 //
 // Having a task that simply runs other tasks is nice for Travis or other CI
@@ -386,6 +421,7 @@ gulp.task('test', 'Run all tests', function (callback) {
     'critical-test',
     'phantomas',
     'psi',
+    'wpt',
     callback
   );
 });
