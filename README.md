@@ -21,8 +21,11 @@ This repo uses Ruby and npm to power a Jekyll site. Assuming you already have [H
 # update homebrew
 brew update
 
-# install node.js
-brew install node
+# install node version manager the specific version
+# of node.js needed by these training materials
+brew install nvm
+nvm install v0.12.7
+nvm use
 
 # install rbenv
 brew install rbenv
@@ -33,6 +36,7 @@ rbenv install 2.0.0-p451
 
 # install the rest of the tools
 bundle install
+npm install -g gulp
 npm install
 
 # run the development server
@@ -69,9 +73,14 @@ rvm install ruby-2.0.0-p451
 
 # install the rest of the tools
 cd path/to/this/repo
-npm install 
 bundle install
+npm install -g gulp
+npm install
 
 # run the development server
 gulp bs
 ```
+
+# Windows
+
+Unfortunately at this time we do not have detailed, reliable installation instructions for local Windows development. We recommend using a linux VM for development, and your preferred Windows IDE to edit files.
