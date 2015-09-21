@@ -13,9 +13,13 @@ This repo contains slides and materials to help you learn about frontend perform
 * [DrupalCon LA 2015](https://events.drupal.org/losangeles2015/training/frontend-performance-training)
 * [DrupalCon Barcelona 2015](https://events.drupal.org/barcelona2015/training/frontend-performance-training)
 
-# Installation: OS X
+# Installation
 
-This repo uses Ruby and npm to power a Jekyll site. Assuming you already have [Homebrew](http://brew.sh/), the following commands will install the whole training kit for you (run them at the root of the repo):
+This repo uses Ruby and npm to power a Jekyll site. Assuming you already have [Homebrew](http://brew.sh/), the following commands will install the whole training kit for you (run them at the root of the repo).
+
+# NOTE: NEVER USE `sudo` TO INSTALL
+
+## OS X
 
 ```
 # update homebrew
@@ -44,7 +48,7 @@ npm install
 gulp bs
 ```
 
-# Installation: Debian/Ubuntu
+## Debian/Ubuntu
 
 ```
 # update repositories
@@ -83,6 +87,6 @@ npm install
 gulp bs
 ```
 
-# Windows
+## Windows
 
 Unfortunately at this time we do not have detailed, reliable installation instructions for local Windows development. We recommend using a linux VM for development, and your preferred Windows IDE to edit files.
