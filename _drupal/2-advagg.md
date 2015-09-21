@@ -15,6 +15,10 @@ links:
     text: using AdvAgg to inspect aggregates
     type: blog
     url: https://fourword.fourkitchens.com/article/use-advagg-information-tab-debug-or-optimize-css-and-js-aggregates-drupal-7
+  -
+    text: using prerender in Chrome/IE
+    type: blog
+    url: https://fourword.fourkitchens.com/article/prerender-chrome-instant-page-loads
 ---
 
 AdvAgg is another more advanced option, when your needs have outgrown Magic's functionality.
@@ -26,3 +30,5 @@ AdvAgg is another more advanced option, when your needs have outgrown Magic's fu
 * Configure the number of aggregates created.
 * Minification of JS (not available in Drupal 7 core).
 * Minify and/or inline CSS and JS.
+* Asynchronously load CSS/JS/fonts.
+* DNS Prefetch hostnames automatically.
