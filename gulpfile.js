@@ -110,10 +110,10 @@ gulp.task('uncss', 'Removes unused CSS from frameworks', function() {
     ])
     .pipe(uncss({
       html: [
-        'http://localhost:4000/',
-        'http://localhost:4000/audit/',
-        'http://localhost:4000/foundation/',
-        'http://localhost:4000/budgets/'
+        'http://localhost:3000/',
+        'http://localhost:3000/audit/',
+        'http://localhost:3000/foundation/',
+        'http://localhost:3000/budgets/'
       ]
     }))
     .pipe(gulp.dest('css/'));
