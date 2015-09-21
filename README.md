@@ -35,6 +35,7 @@ brew install ruby-build
 rbenv install 2.0.0-p451
 
 # install the rest of the tools
+gem install bundler
 bundle install
 npm install -g gulp
 npm install
@@ -70,6 +71,7 @@ source ~/.rvm/scripts/rvm
 
 # install ruby
 rvm install ruby-2.0.0-p451
+gem install bundler
 
 # install the rest of the tools
 cd path/to/this/repo
