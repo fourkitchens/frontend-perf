@@ -20,7 +20,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-uncss": "^1.0.1",
     "gulp-util": "^3.0.4",
-    "ngrok": "^0.1.99",
+    "ngrok": "^2.1.8",
     "phantomas": "^1.10.0",
     "psi": "^1.0.6",
     "run-sequence": "^1.1.0",
