@@ -381,8 +381,7 @@ gulp.task('critical-test', 'Performance: check the contents of critical CSS', fu
 // site, then it tests the site. This task outputs the standard PageSpeed results.
 // -----------------------------------------------------------------------------
 gulp.task('wpt', 'Performance: WebPageTest.org', function () {
-  var keys = require('./settings.json');
-  var wpt_test = wpt('www.webpagetest.org', keys.wpt);
+  var wpt_test = wpt('www.webpagetest.org', process.env.wptkey);
 
   // Set up a public tunnel so WebPageTest can see the local site.
   return ngrok.connect(4000, function (err_ngrok, url) {
