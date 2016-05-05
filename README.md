@@ -57,17 +57,18 @@ sudo apt-get update
 # check for old node package
 dpkg --get-selections | grep node
 
-# if old node package installation found by previous command, remove it to avoid name collisions
+# if old node package installation found by previous command,
+# we recommend removing it to avoid name collisions
 sudo apt-get remove --purge node
 
-# install node.js
-sudo apt-get install nodejs
+# install nvm (the Node version manager)
+# See https://github.com/creationix/nvm#install-script
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
 
-# create a symbolic link for “node” as many Node.js tools use this name to execute.
-sudo ln -s /usr/bin/nodejs /usr/bin/node
-
-# install npm
-sudo apt-get install npm
+# install the version of node used in these examples
+# if "nvm: command not found" error, close and reopen your terminal or session
+nvm install v0.12.7
+nvm use
 
 # install rvm
 \curl -sSL https://get.rvm.io | bash -s stable --rails
