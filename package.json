@@ -6,7 +6,7 @@
   "devDependencies": {
     "bootstrap": "^3.3.4",
     "browser-sync": "^2.6.9",
-    "critical": "^0.5.7",
+    "critical": "^0.7.2",
     "del": "^1.1.1",
     "ghooks": "^0.3.2",
     "gulp": "^3.9.0",

@@ -25,7 +25,7 @@ var mincss = require('gulp-minify-css');
 var imagemin = require('gulp-imagemin');
 var uncss = require('gulp-uncss');
 var uglify = require('gulp-uglify');
-var critical = require('critical');
+var critical = require('critical').stream;
 
 // Performance testing plugins
 var psi = require('psi');
@@ -145,25 +145,26 @@ gulp.task('js', 'Combines and minifies JS', function() {
 // website renders. If the user has to scroll even a small amount, it's not
 // critical CSS.
 // -----------------------------------------------------------------------------
-gulp.task('critical', 'Generates critical CSS for the example site', function (cb) {
-  critical.generate({
-    base: '_site/',
-    src: 'index.html',
-    css: ['css/all.min.css'],
-    dimensions: [{
-      width: 320,
-      height: 480
-    },{
-      width: 768,
-      height: 1024
-    },{
-      width: 1280,
-      height: 960
-    }],
-    dest: '../_includes/critical.css',
-    minify: true,
-    extract: false
-  });
+gulp.task('critical', 'Generates critical CSS for the example site', function () {
+  return gulp.src('_site/index.html')
+    .pipe(critical({
+      dest: '_includes/critical.css',
+      css: ['css/all.min.css'],
+      dimensions: [{
+        width: 320,
+        height: 480
+      },{
+        width: 768,
+        height: 1024
+      },{
+        width: 1280,
+        height: 960
+      }],
+      minify: true,
+      ignore: ['@font-face',/url\(/],
+      extract: false
+    }))
+    .pipe(gulp.dest('_includes/'));
 });
 
 // -----------------------------------------------------------------------------
@@ -274,7 +275,7 @@ gulp.task('bs', 'Main development task:', ['css', 'js', /*'imagemin',*/ 'jekyll'
 // ensures that the site never exceeds a specific number of HTTP requests.
 // -----------------------------------------------------------------------------
 gulp.task('phantomas', 'Performance: measure a URL using Phantomas', function() {
-  var limit = 5;
+  var limit = 20;
   var phantomas = spawn('./node_modules/.bin/phantomas', ['--url', 'http://localhost:4000', '--assert-requests=' + limit]);
 
   // Uncomment this block to see the full Phantomas output.
@@ -329,7 +330,7 @@ gulp.task('psi', 'Performance: PageSpeed Insights', function() {
     // Run PageSpeed once the tunnel is up.
     psi.output(url, {
       strategy: 'mobile',
-      threshold: 80
+      threshold: 60
     }, function (err_psi, data) {
       // Log any potential errors and return a FAILURE.
       if (err_psi) {
