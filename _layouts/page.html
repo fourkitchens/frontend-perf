@@ -5,6 +5,25 @@
     <title>{{ page.title }} | {{ site.name }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+    <script>{% include fontfaceobserver.js %}</script>
+    <script>
+      (function(w) {
+        var fontName = 'Droid Sans';
+        if(w.document.documentElement.className.indexOf("fonts-loaded") > -1){
+            return;
+        }
+        var font = new FontFaceObserver(fontName, {
+          weight: 400
+        });
+         
+        font.load().then(function () {
+          w.document.documentElement.className += " fonts-loaded";
+        }, function () {
+          console.log(fontName, ' is not available');
+        });
+      })(window);
+    </script>
     <link rel="preload" href="/css/all.min.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/css/all.min.css"></noscript>
       <!-- When we generate critical CSS, uncomment this Jekyll statement -->

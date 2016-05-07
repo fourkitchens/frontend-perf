@@ -4,8 +4,14 @@
 
 .jumbotron {
   h1 {
-    font-family: $droid-sans;
     text-shadow: 1px 1px 0px rgba(#fff, 1);
+    font-family: sans-serif;
+  }
+
+  .fonts-loaded & {
+    h1 {
+      font-family: $droid-sans;
+    }
   }
 
   @media screen and (min-width: 768px) {

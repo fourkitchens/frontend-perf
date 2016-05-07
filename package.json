@@ -2,7 +2,9 @@
   "name": "frontend-perf-training",
   "repository": "git@github.com:fourkitchens/frontend-perf.git",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "fontfaceobserver": "^1.7.1"
+  },
   "devDependencies": {
     "bootstrap": "^3.3.4",
     "browser-sync": "^2.6.9",

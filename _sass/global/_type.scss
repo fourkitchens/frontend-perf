@@ -2,11 +2,6 @@
 //   Fonts
 // -----------------------------------------------------------------------------
 
-@font-face {
-  font-family: 'Droid Sans';
-  src: url('//fonts.googleapis.com/css?family=Droid+Sans:400');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('//fonts.googleapis.com/css?family=Droid+Sans:400');
 
 $droid-sans: 'Droid Sans', sans-serif;
