@@ -17,7 +17,7 @@ This repo contains slides and materials to help you learn about frontend perform
 
 This repo uses Ruby and npm to power a Jekyll site. Assuming you already have [Homebrew](http://brew.sh/), the following commands will install the whole training kit for you (run them at the root of the repo).
 
-# NOTE: NEVER USE `sudo` TO INSTALL
+# NOTE: NEVER USE `sudo` TO INSTALL!
 
 ## OS X
 
