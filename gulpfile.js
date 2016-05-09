@@ -25,7 +25,7 @@ var mincss = require('gulp-minify-css');
 var imagemin = require('gulp-imagemin');
 var uncss = require('gulp-uncss');
 var uglify = require('gulp-uglify');
-var critical = require('critical');
+var critical = require('critical').stream;
 
 // Performance testing plugins
 var psi = require('psi');
@@ -145,25 +145,24 @@ gulp.task('js', 'Combines and minifies JS', function() {
 // website renders. If the user has to scroll even a small amount, it's not
 // critical CSS.
 // -----------------------------------------------------------------------------
-gulp.task('critical', 'Generates critical CSS for the example site', function (cb) {
-  critical.generate({
-    base: '_site/',
-    src: 'index.html',
-    css: ['css/all.min.css'],
-    dimensions: [{
-      width: 320,
-      height: 480
-    },{
-      width: 768,
-      height: 1024
-    },{
-      width: 1280,
-      height: 960
-    }],
-    dest: '../_includes/critical.css',
-    minify: true,
-    extract: false
-  });
+gulp.task('critical', 'Generates critical CSS for the example site', function () {
+  return gulp.src('_site/index.html')
+    .pipe(critical({
+      dest: '_includes/critical.css',
+      css: ['css/all.min.css'],
+      dimensions: [{
+        width: 320,
+        height: 480
+      },{
+        width: 768,
+        height: 1024
+      },{
+        width: 1280,
+        height: 960
+      }],
+      minify: true,
+      extract: false
+    }));
 });
 
 // -----------------------------------------------------------------------------
