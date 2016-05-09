@@ -11,7 +11,7 @@
     "critical": "^0.7.2",
     "del": "^1.1.1",
     "ghooks": "^0.3.2",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^2.1.0",
     "gulp-concat": "^2.5.2",
     "gulp-exit": "0.0.2",
