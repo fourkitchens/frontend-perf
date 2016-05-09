@@ -19,6 +19,9 @@ links:
     text: using prerender in Chrome/IE
     type: blog
     url: https://fourword.fourkitchens.com/article/prerender-chrome-instant-page-loads
+  -
+    text: Bookmarklet to generate DNS prefect link tags
+    url: https://paul.kinlan.me/quick-script-for-prefetch/
 ---
 
 AdvAgg is another more advanced option, when your needs have outgrown Magic's functionality.
