@@ -4,12 +4,6 @@ type: activity
 
 tasks:
   -
-    id: drupal-theming-mzr-info
-    text: Use the <strong>Modernizr module</strong> to conditionally load a stylesheet (using <code>.info</code> file).
-  -
-    id: drupal-theming-mzr-api
-    text: Use the <strong>Modernizr API</strong> to conditionally load a polyfill (using <code>template.php</code> or a custom module).
-  -
     id: drupal-grunt-criticalcss
     text: Use <strong>Grunt</strong> to generate critical CSS for a theme
   -
