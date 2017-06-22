@@ -10,7 +10,7 @@ This repo contains slides and materials to help you learn about frontend perform
 
 ## History
 
-* [DrupalCon NOAL 2016](https://events.drupal.org/neworleans2016/training/frontend-performance)
+* [DrupalCon NOLA 2016](https://events.drupal.org/neworleans2016/training/frontend-performance)
 * [DrupalCon LA 2015](https://events.drupal.org/losangeles2015/training/frontend-performance-training)
 * [DrupalCon Barcelona 2015](https://events.drupal.org/barcelona2015/training/frontend-performance-training)
 
